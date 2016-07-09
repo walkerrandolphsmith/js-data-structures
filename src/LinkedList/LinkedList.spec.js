@@ -18,4 +18,26 @@ describe('src/LinkedList', () => {
             });
         });
     });
+
+    describe('Given an existing empty LinkedList', () => {
+        let list;
+        beforeEach(() => {
+            list = new LinkedList();
+        });
+        describe('When adding a new element', () => {
+            let element;
+            beforeEach(() => {
+                element = { id: 1 };
+                list.push(element);
+            });
+
+            it('should have the length of one', () => {
+                expect(list.length()).toEqual(1);
+            });
+
+            it('should be not be empty', () => {
+                expect(list.isEmpty()).toBeFalsy();
+            });
+        });
+    });
 });

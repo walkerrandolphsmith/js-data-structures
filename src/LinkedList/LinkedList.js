@@ -8,6 +8,24 @@ export default class LinkedList {
     }
 
     length() {
-        return this.head ? head.length() : 0;
+        return this.head ? this.head.length() : 0;
+    }
+
+    push(element) {
+        if(!this.head) {
+            this.head = new Node(element);
+        } else {
+            this.head.append(element);
+        }
+    }
+}
+
+class Node {
+    constructor(data) {
+        this.data = data;
+    }
+
+    length() {
+        return 1;
     }
 }
