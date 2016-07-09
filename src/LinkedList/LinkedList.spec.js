@@ -16,6 +16,10 @@ describe('src/LinkedList', () => {
             it('should be empty', () => {
                 expect(actual.isEmpty()).toBeTruthy();
             });
+
+            it('should not be able to retrieve the first element', () => {
+                expect(actual.getFirst()).toBeFalsy();
+            });
         });
     });
 
@@ -54,6 +58,26 @@ describe('src/LinkedList', () => {
 
             it('should be not be empty', () => {
                 expect(list.isEmpty()).toBeFalsy();
+            });
+        });
+
+        describe('Given an existing non-empty LinkedList', () => {
+            let list;
+            let first;
+            beforeEach(() => {
+                first = { id: 1 };
+                list = new LinkedList();
+                list.push(first)
+            });
+            describe('When retrieving the first element', () => {
+                let actual;
+                beforeEach(() => {
+                    actual = list.getFirst();
+                });
+
+                it('should return the first element in the list', () => {
+                    expect(actual).toEqual(first);
+                });
             });
         });
     });

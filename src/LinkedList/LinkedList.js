@@ -18,6 +18,10 @@ export default class LinkedList {
             this.head.push(element);
         }
     }
+
+    getFirst() {
+        return this.head ? this.head.getData() : undefined;
+    }
 }
 
 class Node {
@@ -37,5 +41,9 @@ class Node {
         } else {
             this.next.push(element);
         }
+    }
+
+    getData() {
+        return this.data;
     }
 }
