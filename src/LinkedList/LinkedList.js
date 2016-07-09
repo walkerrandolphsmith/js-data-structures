@@ -15,7 +15,7 @@ export default class LinkedList {
         if(!this.head) {
             this.head = new Node(element);
         } else {
-            this.head.append(element);
+            this.head.push(element);
         }
     }
 }
@@ -23,9 +23,19 @@ export default class LinkedList {
 class Node {
     constructor(data) {
         this.data = data;
+        this.next = undefined;
+        this.previous = undefined;
     }
 
     length() {
-        return 1;
+        return this.next ? 1 + this.next.length() : 1;
+    }
+
+    push(element) {
+        if(!this.next) {
+            this.next = new Node(element);
+        } else {
+            this.next.push(element);
+        }
     }
 }

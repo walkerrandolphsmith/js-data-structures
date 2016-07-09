@@ -39,5 +39,22 @@ describe('src/LinkedList', () => {
                 expect(list.isEmpty()).toBeFalsy();
             });
         });
+
+        describe('When adding a two elements', () => {
+            let element;
+            beforeEach(() => {
+                element = { id: 1 };
+                list.push(element);
+                list.push(element);
+            });
+
+            it('should have the length of two', () => {
+                expect(list.length()).toEqual(2);
+            });
+
+            it('should be not be empty', () => {
+                expect(list.isEmpty()).toBeFalsy();
+            });
+        });
     });
 });
