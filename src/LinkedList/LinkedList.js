@@ -12,10 +12,10 @@ export default class LinkedList {
     }
 
     push(element) {
-        if(!this.head) {
-            this.head = new Node(element);
-        } else {
+        if(this.head) {
             this.head.push(element);
+        } else {
+            this.head = new Node(element);
         }
     }
 
@@ -40,10 +40,10 @@ class Node {
     }
 
     push(element) {
-        if(!this.next) {
-            this.next = new Node(element);
-        } else {
+        if(this.next) {
             this.next.push(element);
+        } else {
+            this.next = new Node(element);
         }
     }
 
@@ -52,10 +52,10 @@ class Node {
     }
 
     getLast() {
-        if(!this.next) {
-            return this.data;
-        } else {
+        if(this.next) {
             return this.next.getLast();
+        } else {
+            return this.data;
         }
     }
 }
