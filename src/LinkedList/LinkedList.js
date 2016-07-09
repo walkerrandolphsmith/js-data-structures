@@ -24,7 +24,7 @@ export default class LinkedList {
     }
 
     getLast() {
-        return undefined;
+        return this.head ? this.head.getLast() : undefined;
     }
 }
 
@@ -49,5 +49,13 @@ class Node {
 
     getData() {
         return this.data;
+    }
+
+    getLast() {
+        if(!this.next) {
+            return this.data;
+        } else {
+            return this.next.getLast();
+        }
     }
 }

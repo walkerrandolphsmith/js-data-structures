@@ -65,13 +65,13 @@ describe('src/LinkedList', () => {
             });
         });
 
-        describe('Given an existing non-empty LinkedList', () => {
+        describe('Given an existing LinkedList with one element', () => {
             let list;
-            let first;
+            let element;
             beforeEach(() => {
-                first = { id: 1 };
+                element = { id: 1 };
                 list = new LinkedList();
-                list.push(first)
+                list.push(element)
             });
             describe('When retrieving the first element', () => {
                 let actual;
@@ -80,7 +80,31 @@ describe('src/LinkedList', () => {
                 });
 
                 it('should return the first element in the list', () => {
-                    expect(actual).toEqual(first);
+                    expect(actual).toEqual(element);
+                });
+            });
+
+            describe('When retrieving the last element', () => {
+                let actual;
+                beforeEach(() => {
+                    actual = list.getLast();
+                });
+
+                it('should return the last element in the list', () => {
+                    expect(actual).toEqual(element);
+                });
+            });
+
+            describe('When retrieving the first and last element', () => {
+                let first;
+                let last;
+                beforeEach(() => {
+                    first = list.getFirst();
+                    last = list.getLast();
+                });
+
+                it('should return the same element', () => {
+                    expect(first).toEqual(last);
                 });
             });
         });
