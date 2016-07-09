@@ -52,10 +52,6 @@ class Node {
     }
 
     getLast() {
-        if(this.next) {
-            return this.next.getLast();
-        } else {
-            return this.data;
-        }
+        return this.next ? this.next.getLast() : this.data;
     }
 }
