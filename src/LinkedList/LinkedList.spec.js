@@ -12,6 +12,10 @@ describe('src/LinkedList', () => {
             it('should have the length of zero', () => {
                 expect(actual.length()).toEqual(0);
             });
+
+            it('should be empty', () => {
+                expect(actual.isEmpty()).toBeTruthy();
+            });
         });
     });
 });
