@@ -20,6 +20,10 @@ describe('src/LinkedList', () => {
             it('should not be able to retrieve the first element', () => {
                 expect(actual.getFirst()).toBeFalsy();
             });
+
+            it('should not be able to retrieve the last element', () => {
+                expect(actual.getLast()).toBeFalsy();
+            });
         });
     });
 

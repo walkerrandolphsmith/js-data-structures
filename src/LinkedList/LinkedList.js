@@ -22,6 +22,10 @@ export default class LinkedList {
     getFirst() {
         return this.head ? this.head.getData() : undefined;
     }
+
+    getLast() {
+        return undefined;
+    }
 }
 
 class Node {
