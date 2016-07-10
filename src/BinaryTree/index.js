@@ -5,7 +5,7 @@ export default class BinaryTree {
         this.root.right = right instanceof BinaryTree ? right.root : undefined;
     }
 
-    getData = () => this.root ? this.root.data : undefined;
+    getData = () => this.root.data;
 
     isLeaf = () => !(this.root.left || this.root.right);
 
