@@ -1,5 +1,5 @@
 import expect from 'expect';
-import LinkedList from './LinkedList';
+import LinkedList from './index';
 
 describe('src/LinkedList', () => {
     describe('Given no parameters', () => {

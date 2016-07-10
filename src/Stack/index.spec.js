@@ -1,5 +1,5 @@
 import expect from 'expect';
-import Stack from './Stack';
+import Stack from './index';
 
 describe('src/Stack', () => {
     describe('Given no parameters', () => {

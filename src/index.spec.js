@@ -1,9 +1,9 @@
 import expect from 'expect';
 import * as DataStructures from './index';
 
-import LinkedList from './LinkedList/LinkedList';
-import Stack from './Stack/Stack';
-import BinaryTree from './BinaryTree/BinaryTree';
+import LinkedList from './LinkedList';
+import Stack from './Stack';
+import BinaryTree from './BinaryTree';
 
 describe('src/index', () => {
     describe('Given everything is imported from index as DataStructures', () => {

@@ -1,6 +1,5 @@
 import expect from 'expect';
-import BinaryTree from './BinaryTree';
-import { Node } from './BinaryTree';
+import BinaryTree, { Node } from './index';
 
 describe('src/BinaryTree', () => {
     let tree;
