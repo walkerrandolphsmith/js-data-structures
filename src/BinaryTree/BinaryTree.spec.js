@@ -13,5 +13,19 @@ describe('src/BinaryTree', () => {
                 expect(tree.getData()).toBeFalsy();
             });
         })
-    })
+    });
+
+    describe('Given the root node', () => {
+        describe('When creating a BinaryTree', () => {
+            let root;
+            beforeEach(() => {
+                root = { id: 1 };
+                tree = new BinaryTree(root);
+            });
+
+            it('should have data', () => {
+                expect(tree.getData()).toEqual(root);
+            });
+        })
+    });
 });
