@@ -3,13 +3,9 @@ export default class LinkedList {
         this.head = undefined;
     }
 
-    isEmpty() {
-        return !this.head;
-    }
+    isEmpty = () => !this.head;
 
-    length() {
-        return this.head ? this.head.length() : 0;
-    }
+    length = () => this.head ? this.head.length() : 0;
 
     push(element) {
         if(this.head) {
@@ -19,17 +15,11 @@ export default class LinkedList {
         }
     }
 
-    contains(element, comparator) {
-        return this.head ? this.head.contains(element, comparator) : false;
-    }
+    contains = (element, comparator) => this.head ? this.head.contains(element, comparator) : false;
 
-    getFirst() {
-        return this.head ? this.head.getData() : undefined;
-    }
+    getFirst = () => this.head ? this.head.getData() : undefined;
 
-    getLast() {
-        return this.head ? this.head.getLast() : undefined;
-    }
+    getLast = () => this.head ? this.head.getLast() : undefined;
 }
 
 class Node {
@@ -39,9 +29,7 @@ class Node {
         this.previous = undefined;
     }
 
-    length() {
-        return this.next ? 1 + this.next.length() : 1;
-    }
+    length = () => this.next ? 1 + this.next.length() : 1;
 
     push(element) {
         if(this.next) {
@@ -51,20 +39,10 @@ class Node {
         }
     }
 
-    contains(element, comparator) {
-        const finalComparator = comparator ? comparator : (e, d) => e === d;
-        if(finalComparator(element, this.data)){
-            return true;
-        } else {
-            return this.next ? this.next.contains(element) : false;
-        }
-    }
+    contains = (element, comparator = (e, d) => e === d) =>
+        comparator(element, this.data) ? true : this.next ? this.next.contains(element, comparator) : false;
 
-    getData() {
-        return this.data;
-    }
+    getData = () => this.data;
 
-    getLast() {
-        return this.next ? this.next.getLast() : this.data;
-    }
+    getLast = () => this.next ? this.next.getLast() : this.data;
 }
