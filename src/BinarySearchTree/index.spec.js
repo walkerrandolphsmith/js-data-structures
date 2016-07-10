@@ -1,10 +1,27 @@
 import expect from 'expect';
 import BinaryTree, { Node } from './../BinaryTree';
-import BinarySearchTree from './index';
+import BinarySearchTree, { defaultComparator } from './index';
 
 describe('src/BinarySearchTree', () => {
     let tree;
     let element;
+
+    describe('Given the default comparator', () => {
+        describe('When comparing the element to itself', () => {
+            it('should return zero', () => {
+                element = { id: 1 };
+                expect(defaultComparator(element, element)).toEqual(0);
+            });
+        });
+        describe('When comparing two distinct elements', () => {
+            it('should return zero', () => {
+                element = { id: 1 };
+                expect(defaultComparator(element, { id: 2 })).toEqual(-1);
+            });
+        });
+    });
+
+
     describe('Given no parameters', () => {
         describe('When creating a BinarySearchTree', () => {
             beforeEach(() => {
