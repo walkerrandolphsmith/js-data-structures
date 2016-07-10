@@ -112,7 +112,7 @@ describe('src/LinkedList', () => {
             let second;
             beforeEach(() => {
                 first = { id: 1 };
-                second = { id: 1 };
+                second = { id: 2 };
                 list = new LinkedList();
                 list.push(first);
                 list.push(second)
@@ -192,6 +192,25 @@ describe('src/LinkedList', () => {
 
                 it('should contain the second element', () => {
                     expect(list.contains(second)).toBeTruthy();
+                });
+            });
+
+            describe('When removing the second element in the list', () => {
+                let actual;
+                beforeEach(() => {
+                    actual = list.pop(second);
+                });
+
+                it('should return true', () => {
+                    expect(actual).toBeTruthy();
+                });
+
+                it('should not contain the first element', () => {
+                    expect(list.contains(first)).toBeTruthy();
+                });
+
+                it('should contain the second element', () => {
+                    expect(list.contains(second)).toBeFalsy();
                 });
             });
         });

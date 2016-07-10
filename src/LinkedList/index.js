@@ -21,6 +21,7 @@ export default class LinkedList {
                 return current.getNext();
             } else {
                 current.setNext(this.popNode(current.getNext(), data_to_pop, comparator));
+                return current;
             }
         } else {
             return undefined;
