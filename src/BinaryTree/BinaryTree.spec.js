@@ -7,6 +7,7 @@ describe('src/BinaryTree', () => {
     let root;
     let data;
     let leftSubTree;
+    let rightSubTree;
     describe('Given no parameters', () => {
         describe('When creating a BinaryTree', () => {
             beforeEach(() => {
@@ -80,6 +81,84 @@ describe('src/BinaryTree', () => {
                 root = new Node(data);
                 leftSubTree = new BinaryTree();
                 tree = new BinaryTree(root, leftSubTree);
+            });
+
+            it('should have data', () => {
+                expect(tree.getData()).toEqual(data);
+            });
+
+            it('should be a leaf node', () => {
+                expect(tree.isLeaf()).toBeFalsy();
+            });
+        })
+    });
+
+    describe('Given data and two non-BinaryTree', () => {
+        describe('When creating a BinaryTree', () => {
+            beforeEach(() => {
+                data = { id: 1 };
+                root = new Node(data);
+                leftSubTree = "Anything other than a binary tree";
+                rightSubTree = "Anything other than a binary tree";
+                tree = new BinaryTree(root, leftSubTree, rightSubTree);
+            });
+
+            it('should have data', () => {
+                expect(tree.getData()).toEqual(data);
+            });
+
+            it('should be a leaf node', () => {
+                expect(tree.isLeaf()).toBeTruthy();
+            });
+        });
+    });
+
+    describe('Given data, a BinaryTree, and a non-BinaryTree', () => {
+        describe('When creating a BinaryTree with a left subtree', () => {
+            beforeEach(() => {
+                data = { id: 1 };
+                root = new Node(data);
+                leftSubTree = new BinaryTree();
+                rightSubTree = "Anything other than a binary tree";
+                tree = new BinaryTree(root, leftSubTree, rightSubTree);
+            });
+
+            it('should have data', () => {
+                expect(tree.getData()).toEqual(data);
+            });
+
+            it('should be a leaf node', () => {
+                expect(tree.isLeaf()).toBeFalsy();
+            });
+        });
+
+        describe('When creating a BinaryTree with a right subtree', () => {
+            beforeEach(() => {
+                data = { id: 1 };
+                root = new Node(data);
+                leftSubTree = "Anything other than a binary tree";
+                rightSubTree = new BinaryTree();
+                tree = new BinaryTree(root, leftSubTree, rightSubTree);
+            });
+
+            it('should have data', () => {
+                expect(tree.getData()).toEqual(data);
+            });
+
+            it('should be a leaf node', () => {
+                expect(tree.isLeaf()).toBeFalsy();
+            });
+        });
+    });
+
+    describe('Given data and two BinaryTrees', () => {
+        describe('When creating a BinaryTree', () => {
+            beforeEach(() => {
+                data = { id: 1 };
+                root = new Node(data);
+                leftSubTree = new BinaryTree();
+                rightSubTree = new BinaryTree();
+                tree = new BinaryTree(root, leftSubTree, rightSubTree);
             });
 
             it('should have data', () => {
