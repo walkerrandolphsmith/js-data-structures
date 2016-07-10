@@ -14,8 +14,12 @@ describe('src/BinaryTree', () => {
                 tree = new BinaryTree();
             });
 
-            it('should have no data', () => {
+            it('should not have data', () => {
                 expect(tree.getData()).toBeFalsy();
+            });
+
+            it('should not have a left subtree', () => {
+                expect(tree.getLeftSubtree()).toBeFalsy();
             });
         })
     });
@@ -34,6 +38,10 @@ describe('src/BinaryTree', () => {
             it('should be a leaf node', () => {
                 expect(tree.isLeaf()).toBeTruthy();
             });
+
+            it('should not have a left subtree', () => {
+                expect(tree.getLeftSubtree()).toBeFalsy();
+            });
         })
     });
 
@@ -51,6 +59,10 @@ describe('src/BinaryTree', () => {
 
             it('should be a leaf node', () => {
                 expect(tree.isLeaf()).toBeTruthy();
+            });
+
+            it('should not have a left subtree', () => {
+                expect(tree.getLeftSubtree()).toBeFalsy();
             });
         })
     });
@@ -71,6 +83,10 @@ describe('src/BinaryTree', () => {
             it('should be a leaf node', () => {
                 expect(tree.isLeaf()).toBeTruthy();
             });
+
+            it('should not have a left subtree', () => {
+                expect(tree.getLeftSubtree()).toBeFalsy();
+            });
         })
     });
 
@@ -79,7 +95,7 @@ describe('src/BinaryTree', () => {
             beforeEach(() => {
                 data = { id: 1 };
                 root = new Node(data);
-                leftSubTree = new BinaryTree();
+                leftSubTree = new BinaryTree(1);
                 tree = new BinaryTree(root, leftSubTree);
             });
 
@@ -89,6 +105,10 @@ describe('src/BinaryTree', () => {
 
             it('should be a leaf node', () => {
                 expect(tree.isLeaf()).toBeFalsy();
+            });
+
+            it('should have a left subtree', () => {
+                expect(tree.getLeftSubtree().getData()).toEqual(leftSubTree.getData());
             });
         })
     });
@@ -110,6 +130,10 @@ describe('src/BinaryTree', () => {
             it('should be a leaf node', () => {
                 expect(tree.isLeaf()).toBeTruthy();
             });
+
+            it('should not have a left subtree', () => {
+                expect(tree.getLeftSubtree()).toBeFalsy();
+            });
         });
     });
 
@@ -118,7 +142,7 @@ describe('src/BinaryTree', () => {
             beforeEach(() => {
                 data = { id: 1 };
                 root = new Node(data);
-                leftSubTree = new BinaryTree();
+                leftSubTree = new BinaryTree(1);
                 rightSubTree = "Anything other than a binary tree";
                 tree = new BinaryTree(root, leftSubTree, rightSubTree);
             });
@@ -129,6 +153,10 @@ describe('src/BinaryTree', () => {
 
             it('should be a leaf node', () => {
                 expect(tree.isLeaf()).toBeFalsy();
+            });
+
+            it('should have a left subtree', () => {
+                expect(tree.getLeftSubtree().getData()).toEqual(leftSubTree.getData());
             });
         });
 
@@ -148,6 +176,10 @@ describe('src/BinaryTree', () => {
             it('should be a leaf node', () => {
                 expect(tree.isLeaf()).toBeFalsy();
             });
+
+            it('should not have a left subtree', () => {
+                expect(tree.getLeftSubtree()).toBeFalsy();
+            });
         });
     });
 
@@ -156,7 +188,7 @@ describe('src/BinaryTree', () => {
             beforeEach(() => {
                 data = { id: 1 };
                 root = new Node(data);
-                leftSubTree = new BinaryTree();
+                leftSubTree = new BinaryTree(1);
                 rightSubTree = new BinaryTree();
                 tree = new BinaryTree(root, leftSubTree, rightSubTree);
             });
@@ -167,6 +199,10 @@ describe('src/BinaryTree', () => {
 
             it('should be a leaf node', () => {
                 expect(tree.isLeaf()).toBeFalsy();
+            });
+
+            it('should have a left subtree', () => {
+                expect(tree.getLeftSubtree().getData()).toEqual(leftSubTree.getData());
             });
         })
     });
