@@ -34,7 +34,9 @@
     "babel-preset-stage-2": "^6.5.0",
     "babel-preset-stage-3": "^6.5.0",
     "expect": "^1.20.2",
-    "mocha": "^2.5.3"
+    "mocha": "^2.5.3",
+    "wallaby-webpack": "0.0.22",
+    "webpack": "^1.13.1"
   },
   "babel": {
     "presets": [
