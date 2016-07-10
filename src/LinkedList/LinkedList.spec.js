@@ -88,37 +88,20 @@ describe('src/LinkedList', () => {
                 list.push(element)
             });
             describe('When retrieving the first element', () => {
-                let actual;
-                beforeEach(() => {
-                    actual = list.getFirst();
-                });
-
                 it('should return the first element in the list', () => {
-                    expect(actual).toEqual(element);
+                    expect(list.getFirst()).toEqual(element);
                 });
             });
 
             describe('When retrieving the last element', () => {
-                let actual;
-                beforeEach(() => {
-                    actual = list.getLast();
-                });
-
                 it('should return the last element in the list', () => {
-                    expect(actual).toEqual(element);
+                    expect(list.getLast()).toEqual(element);
                 });
             });
 
             describe('When retrieving the first and last element', () => {
-                let first;
-                let last;
-                beforeEach(() => {
-                    first = list.getFirst();
-                    last = list.getLast();
-                });
-
                 it('should return the same element', () => {
-                    expect(first).toEqual(last);
+                    expect(list.getFirst()).toEqual(list.getLast());
                 });
             });
         });
@@ -136,24 +119,14 @@ describe('src/LinkedList', () => {
             });
 
             describe('When retrieving the first element', () => {
-                let actual;
-                beforeEach(() => {
-                    actual = list.getFirst();
-                });
-
                 it('should return the first element in the list', () => {
-                    expect(actual).toEqual(first);
+                    expect(list.getFirst()).toEqual(first);
                 });
             });
 
             describe('When retrieving the last element', () => {
-                let actual;
-                beforeEach(() => {
-                    actual = list.getLast();
-                });
-
                 it('should return the last element in the list', () => {
-                    expect(actual).toEqual(second);
+                    expect(list.getLast()).toEqual(second);
                 });
             });
 
