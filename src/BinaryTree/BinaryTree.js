@@ -10,6 +10,8 @@ export default class BinaryTree {
     isLeaf = () => !(this.root.left || this.root.right);
 
     getLeftSubtree = () => this.root && this.root.left ? new BinaryTree(this.root.left) : undefined;
+
+    getRightSubtree = () => this.root && this.root.right ? new BinaryTree(this.root.right) : undefined;
 }
 
 export class Node {

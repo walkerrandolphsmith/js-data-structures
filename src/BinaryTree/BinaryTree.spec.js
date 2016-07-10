@@ -21,6 +21,10 @@ describe('src/BinaryTree', () => {
             it('should not have a left subtree', () => {
                 expect(tree.getLeftSubtree()).toBeFalsy();
             });
+
+            it('should not have a right subtree', () => {
+                expect(tree.getRightSubtree()).toBeFalsy();
+            });
         })
     });
 
@@ -41,6 +45,10 @@ describe('src/BinaryTree', () => {
 
             it('should not have a left subtree', () => {
                 expect(tree.getLeftSubtree()).toBeFalsy();
+            });
+
+            it('should not have a right subtree', () => {
+                expect(tree.getRightSubtree()).toBeFalsy();
             });
         })
     });
@@ -63,6 +71,10 @@ describe('src/BinaryTree', () => {
 
             it('should not have a left subtree', () => {
                 expect(tree.getLeftSubtree()).toBeFalsy();
+            });
+
+            it('should not have a right subtree', () => {
+                expect(tree.getRightSubtree()).toBeFalsy();
             });
         })
     });
@@ -87,6 +99,10 @@ describe('src/BinaryTree', () => {
             it('should not have a left subtree', () => {
                 expect(tree.getLeftSubtree()).toBeFalsy();
             });
+
+            it('should not have a right subtree', () => {
+                expect(tree.getRightSubtree()).toBeFalsy();
+            });
         })
     });
 
@@ -109,6 +125,10 @@ describe('src/BinaryTree', () => {
 
             it('should have a left subtree', () => {
                 expect(tree.getLeftSubtree().getData()).toEqual(leftSubTree.getData());
+            });
+
+            it('should not have a right subtree', () => {
+                expect(tree.getRightSubtree()).toBeFalsy();
             });
         })
     });
@@ -134,6 +154,10 @@ describe('src/BinaryTree', () => {
             it('should not have a left subtree', () => {
                 expect(tree.getLeftSubtree()).toBeFalsy();
             });
+
+            it('should not have a right subtree', () => {
+                expect(tree.getRightSubtree()).toBeFalsy();
+            });
         });
     });
 
@@ -158,6 +182,10 @@ describe('src/BinaryTree', () => {
             it('should have a left subtree', () => {
                 expect(tree.getLeftSubtree().getData()).toEqual(leftSubTree.getData());
             });
+
+            it('should not have a right subtree', () => {
+                expect(tree.getRightSubtree()).toBeFalsy();
+            });
         });
 
         describe('When creating a BinaryTree with a right subtree', () => {
@@ -165,7 +193,7 @@ describe('src/BinaryTree', () => {
                 data = { id: 1 };
                 root = new Node(data);
                 leftSubTree = "Anything other than a binary tree";
-                rightSubTree = new BinaryTree();
+                rightSubTree = new BinaryTree(2);
                 tree = new BinaryTree(root, leftSubTree, rightSubTree);
             });
 
@@ -180,6 +208,10 @@ describe('src/BinaryTree', () => {
             it('should not have a left subtree', () => {
                 expect(tree.getLeftSubtree()).toBeFalsy();
             });
+
+            it('should have a right subtree', () => {
+                expect(tree.getRightSubtree().getData()).toEqual(rightSubTree.getData());
+            });
         });
     });
 
@@ -189,7 +221,7 @@ describe('src/BinaryTree', () => {
                 data = { id: 1 };
                 root = new Node(data);
                 leftSubTree = new BinaryTree(1);
-                rightSubTree = new BinaryTree();
+                rightSubTree = new BinaryTree(2);
                 tree = new BinaryTree(root, leftSubTree, rightSubTree);
             });
 
@@ -203,6 +235,10 @@ describe('src/BinaryTree', () => {
 
             it('should have a left subtree', () => {
                 expect(tree.getLeftSubtree().getData()).toEqual(leftSubTree.getData());
+            });
+
+            it('should have a right subtree', () => {
+                expect(tree.getRightSubtree().getData()).toEqual(rightSubTree.getData());
             });
         })
     });
