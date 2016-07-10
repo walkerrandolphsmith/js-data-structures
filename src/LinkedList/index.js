@@ -16,16 +16,11 @@ export default class LinkedList {
     }
 
     popNode(current, data_to_pop, comparator = (nd, d) => nd === d) {
-        if(current.getData()) {
-            if(comparator(current.getData(), data_to_pop)) {
-                return current.getNext();
-            } else {
-                current.setNext(this.popNode(current.getNext(), data_to_pop, comparator));
-                return current;
-            }
-        } else {
-            return current.getNext();
+        if(current.getData() && !comparator(current.getData(), data_to_pop)){
+            current.next = this.popNode(current.next, data_to_pop, comparator);
+            return current;
         }
+        return current.next;
     }
 
     pop(data, comparator) {
@@ -58,12 +53,6 @@ class Node {
         } else {
             this.next = new Node(element);
         }
-    }
-
-    getNext = () => this.next;
-
-    setNext(newNext) {
-        this.next = newNext;
     }
 
     contains = (element, comparator = (e, d) => e === d) =>
