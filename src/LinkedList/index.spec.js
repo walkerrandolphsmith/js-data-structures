@@ -214,5 +214,44 @@ describe('src/LinkedList', () => {
                 });
             });
         });
+
+        describe('Given an existing LinkedList with two distinct elements such that one has empty data', () => {
+            let list;
+            let first;
+            let third;
+            let emptyNode;
+            beforeEach(() => {
+                first = { id: 1 };
+                emptyNode = undefined;
+                third = { id: 3 };
+                list = new LinkedList();
+                list.push(first);
+                list.push(emptyNode);
+                list.push(third);
+            });
+
+            describe('When removing the element with empty data in the list', () => {
+                let actual;
+                beforeEach(() => {
+                    actual = list.pop(emptyNode);
+                });
+
+                it('should return true', () => {
+                    expect(actual).toBeTruthy();
+                });
+
+                it('should not contain the first element', () => {
+                    expect(list.contains(first)).toBeTruthy();
+                });
+
+                it('should contain the second element', () => {
+                    expect(list.contains(emptyNode)).toBeFalsy();
+                });
+
+                it('should contain the third element', () => {
+                    expect(list.contains(third)).toBeTruthy();
+                });
+            });
+        });
     });
 });

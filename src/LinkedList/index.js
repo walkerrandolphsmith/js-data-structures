@@ -16,7 +16,7 @@ export default class LinkedList {
     }
 
     popNode(current, data_to_pop, comparator = (nd, d) => nd === d) {
-        if(current) {
+        if(current.getData()) {
             if(comparator(current.getData(), data_to_pop)) {
                 return current.getNext();
             } else {
@@ -24,7 +24,7 @@ export default class LinkedList {
                 return current;
             }
         } else {
-            return undefined;
+            return current.getNext();
         }
     }
 
