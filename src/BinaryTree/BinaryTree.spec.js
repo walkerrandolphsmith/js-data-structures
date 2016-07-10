@@ -28,6 +28,10 @@ describe('src/BinaryTree', () => {
             it('should have data', () => {
                 expect(tree.getData()).toEqual(data);
             });
+
+            it('should be a leaf node', () => {
+                expect(tree.isLeaf()).toBeTruthy();
+            });
         })
     });
 
@@ -41,6 +45,10 @@ describe('src/BinaryTree', () => {
 
             it('should have data', () => {
                 expect(tree.getData()).toEqual(data);
+            });
+
+            it('should be a leaf node', () => {
+                expect(tree.isLeaf()).toBeTruthy();
             });
         })
     });

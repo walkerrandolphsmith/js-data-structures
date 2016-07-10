@@ -4,6 +4,8 @@ export default class BinaryTree {
     }
 
     getData = () => this.root ? this.root.data : undefined;
+
+    isLeaf = () => !(this.root.left || this.root.right);
 }
 
 export class Node {
