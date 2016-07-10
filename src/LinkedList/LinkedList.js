@@ -19,8 +19,8 @@ export default class LinkedList {
         }
     }
 
-    contains(element) {
-        return this.head ? this.head.contains(element) : false;
+    contains(element, comparator) {
+        return this.head ? this.head.contains(element, comparator) : false;
     }
 
     getFirst() {
@@ -51,8 +51,9 @@ class Node {
         }
     }
 
-    contains(element) {
-        if(element === this.data){
+    contains(element, comparator) {
+        const finalComparator = comparator ? comparator : (e, d) => e === d;
+        if(finalComparator(element, this.data)){
             return true;
         } else {
             return this.next ? this.next.contains(element) : false;

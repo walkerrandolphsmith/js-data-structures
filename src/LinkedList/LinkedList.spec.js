@@ -135,6 +135,30 @@ describe('src/LinkedList', () => {
                     expect(list.getFirst() === list.getLast()).toBeFalsy();
                 });
             });
+
+            describe('When determining if the first element is contained in the list', () => {
+                it('should return true', () => {
+                    expect(list.contains(first)).toBeTruthy();
+                });
+            });
+
+            describe('When determining if an element that satisfies the comparator is contained in the list', () => {
+                it('should return true', () => {
+                    let actual = list.contains({ id: 1 }, (e, d) => {
+                        return e.id === d.id;
+                    });
+                    expect(actual).toBeTruthy();
+                });
+            });
+
+            describe('When determining if an element that does not satisfy the comparator is contained in the list', () => {
+                it('should return false', () => {
+                    let actual = list.contains({ id: 1 }, (e, d) => {
+                        return e.id === d;
+                    });
+                    expect(actual).toBeFalsy();
+                });
+            });
         });
     });
 });
