@@ -24,6 +24,10 @@ describe('src/LinkedList', () => {
             it('should not be able to retrieve the last element', () => {
                 expect(actual.getLast()).toBeFalsy();
             });
+
+            it('should not contain an element', () => {
+                expect(actual.contains({ id: 1 })).toBeFalsy();
+            });
         });
     });
 
