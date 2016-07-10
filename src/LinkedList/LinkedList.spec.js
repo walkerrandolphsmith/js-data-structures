@@ -27,7 +27,7 @@ describe('src/LinkedList', () => {
         });
     });
 
-    describe('Given an existing empty LinkedList', () => {
+    describe('Given an empty LinkedList', () => {
         let list;
         beforeEach(() => {
             list = new LinkedList();
@@ -119,6 +119,47 @@ describe('src/LinkedList', () => {
 
                 it('should return the same element', () => {
                     expect(first).toEqual(last);
+                });
+            });
+        });
+
+        describe('Given an existing LinkedList with many distinct elements', () => {
+            let list;
+            let first;
+            let second;
+            beforeEach(() => {
+                first = { id: 1 };
+                second = { id: 1 };
+                list = new LinkedList();
+                list.push(first);
+                list.push(second)
+            });
+
+            describe('When retrieving the first element', () => {
+                let actual;
+                beforeEach(() => {
+                    actual = list.getFirst();
+                });
+
+                it('should return the first element in the list', () => {
+                    expect(actual).toEqual(first);
+                });
+            });
+
+            describe('When retrieving the last element', () => {
+                let actual;
+                beforeEach(() => {
+                    actual = list.getLast();
+                });
+
+                it('should return the last element in the list', () => {
+                    expect(actual).toEqual(second);
+                });
+            });
+
+            describe('When retrieving the first and last element', () => {
+                it('should return two distinct elements', () => {
+                    expect(list.getFirst() === list.getLast()).toBeFalsy();
                 });
             });
         });
