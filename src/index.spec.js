@@ -15,7 +15,7 @@ describe('src/index', () => {
             expect(new DataStructures.Stack() instanceof Stack).toBeTruthy();
         });
 
-        it('should contain a LinkedList', () => {
+        it('should contain a BinaryTree', () => {
             expect(new DataStructures.BinaryTree() instanceof BinaryTree).toBeTruthy();
         });
     });
