@@ -1,6 +1,6 @@
 import expect from 'expect';
 import BinaryTree, { Node } from './../BinaryTree';
-import BinarySearchTree, { defaultComparator } from './index';
+import BinarySearchTree, { defaultComparator, compareOnObjectProperty } from './index';
 
 describe('src/BinarySearchTree', () => {
     let tree;
@@ -51,5 +51,115 @@ describe('src/BinarySearchTree', () => {
                 expect(tree.getData()).toEqual(element);
             });
         })
+    });
+
+
+    describe('Given an element that is the root of the tree and non-empty Binary Search Tree', () => {
+        describe('When adding the element', () => {
+            let wasAdded;
+            let root;
+            beforeEach(() => {
+                root = { id: 0 };
+                tree = new BinarySearchTree(root);
+                wasAdded = tree.add(root);
+            });
+
+            it('should indicate that an element was not added', () => {
+                expect(wasAdded).toBeFalsy();
+            });
+
+            it('should still have the original root node', () => {
+                expect(tree.getData()).toEqual(root);
+            });
+
+            it('should not have a left subtree', () => {
+                expect(tree.getLeftSubtree()).toBeFalsy();
+            });
+        })
+    });
+
+    describe('Given an element not in the tree and non-empty Binary Search Tree', () => {
+        describe('When adding the element', () => {
+            let wasAdded;
+            let root;
+            beforeEach(() => {
+                root = { id: 0 };
+                tree = new BinarySearchTree(root);
+                element = { id: 1 };
+                wasAdded = tree.add(element);
+            });
+
+            it('should indicate that an element was added', () => {
+                expect(wasAdded).toBeTruthy();
+            });
+
+            it('should have a root node that contains the element', () => {
+                expect(tree.getData()).toEqual(root);
+            });
+
+            it('should have a left sub tree with a root node containing the element', () => {
+                expect(tree.getLeftSubtree().getData()).toEqual(element);
+            });
+        })
+    });
+
+    describe('Given non-empty Binary Search Tree and an element less than the root', () => {
+        describe('When adding the element', () => {
+            let wasAdded;
+            let root;
+            let comparator = compareOnObjectProperty('id');
+            beforeEach(() => {
+                root = { id: 10 };
+                element = { id: 1 };
+                tree = new BinarySearchTree(root);
+                wasAdded = tree.add(element);
+            });
+
+            it('should indicate that an element was added', () => {
+                expect(wasAdded).toBeTruthy();
+            });
+
+            it('should have a root node that contains the element', () => {
+                expect(tree.getData()).toEqual(root);
+            });
+
+            it('should have a left sub tree with a root node containing the element', () => {
+                expect(tree.getLeftSubtree().getData() === element).toBeTruthy();
+            });
+
+            it('should have a right sub tree with a root node containing the element', () => {
+                expect(tree.getRightSubtree()).toBeFalsy();
+            });
+        });
+    });
+
+    describe('Given non-empty Binary Search Tree and an element greater than the root', () => {
+        describe('When adding the element', () => {
+            let wasAdded;
+            let root;
+            let comparator = compareOnObjectProperty('id');
+            beforeEach(() => {
+                root = { id: 0 };
+                element = { id: 2 };
+                tree = new BinarySearchTree(root);
+                wasAdded = tree.add(element, comparator);
+            });
+
+            it('should indicate that an element was added', () => {
+                expect(wasAdded).toBeTruthy();
+            });
+
+            it('should have a root node that contains the element', () => {
+                expect(tree.getData()).toEqual(root);
+            });
+
+            it('should have a left sub tree with a root node containing the element', () => {
+                expect(tree.getLeftSubtree()).toBeFalsy();
+            });
+
+            it('should have a right sub tree with a root node containing the element', () => {
+                expect(tree.getRightSubtree().getData() === element).toBeTruthy();
+            });
+        });
     });
 });

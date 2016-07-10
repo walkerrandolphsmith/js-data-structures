@@ -2,6 +2,18 @@ import BinaryTree, { Node } from './../BinaryTree';
 
 export const defaultComparator = (e, d) => e === d ? 0 : -1;
 
+export const compareOnObjectProperty = (prop) => {
+   return (e, d) => {
+       if(e[prop] === d[prop]) {
+           return 0;
+       } else if(e[prop] < d[prop]) {
+           return -1;
+       } else {
+           return 1;
+       }
+   };
+};
+
 export default class BinarySearchTree extends BinaryTree {
     add = (element, comparator) => {
         const { wasAdded, root } = this.addNode(this.root, element, comparator);
@@ -10,16 +22,16 @@ export default class BinarySearchTree extends BinaryTree {
     };
 
     addNode = (currentRoot, element, comparator = defaultComparator) => {
-        if(currentRoot.data) {
+        if(currentRoot && currentRoot.data) {
             const comparison = comparator(element, currentRoot.data);
             if(comparison === 0) {
                 return { wasAdded: false, root: currentRoot };
             } else if(comparison < 0) {
-                currentRoot.left = this.addNode(currentRoot.left, element, comparator);
-                return { wasAdded: false, root: currentRoot };
+                currentRoot.left = this.addNode(currentRoot.left, element, comparator).root;
+                return { wasAdded: true, root: currentRoot };
             } else {
-                currentRoot.right = this.addNode(currentRoot.right, element, comparator);
-                return { wasAdded: false, root: currentRoot };
+                currentRoot.right = this.addNode(currentRoot.right, element, comparator).root;
+                return { wasAdded: true, root: currentRoot };
             }
         } else {
             return { wasAdded: true, root: new Node(element) };
