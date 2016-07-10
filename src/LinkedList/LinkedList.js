@@ -19,6 +19,10 @@ export default class LinkedList {
         }
     }
 
+    contains(element) {
+        return this.head ? this.head.contains(element) : false;
+    }
+
     getFirst() {
         return this.head ? this.head.getData() : undefined;
     }
@@ -44,6 +48,14 @@ class Node {
             this.next.push(element);
         } else {
             this.next = new Node(element);
+        }
+    }
+
+    contains(element) {
+        if(element === this.data){
+            return true;
+        } else {
+            return this.next ? this.next.contains(element) : false;
         }
     }
 

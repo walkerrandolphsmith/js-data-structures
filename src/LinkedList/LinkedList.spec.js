@@ -46,14 +46,20 @@ describe('src/LinkedList', () => {
             it('should be not be empty', () => {
                 expect(list.isEmpty()).toBeFalsy();
             });
+
+            it('should contain the element', () => {
+               expect(list.contains(element)).toBeTruthy();
+            });
         });
 
         describe('When adding a two elements', () => {
-            let element;
+            let first;
+            let second;
             beforeEach(() => {
-                element = { id: 1 };
-                list.push(element);
-                list.push(element);
+                first = { id: 1 };
+                second = { id: 2 };
+                list.push(first);
+                list.push(second);
             });
 
             it('should have the length of two', () => {
@@ -62,6 +68,14 @@ describe('src/LinkedList', () => {
 
             it('should be not be empty', () => {
                 expect(list.isEmpty()).toBeFalsy();
+            });
+
+            it('should contain the first element', () => {
+                expect(list.contains(first)).toBeTruthy();
+            });
+
+            it('should contain the second element', () => {
+                expect(list.contains(second)).toBeTruthy();
             });
         });
 
