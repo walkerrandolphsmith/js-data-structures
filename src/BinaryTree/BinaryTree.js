@@ -13,5 +13,7 @@ export default class BinaryTree {
 export class Node {
     constructor(element) {
         this.data = element;
+        this.left = undefined;
+        this.right = undefined;
     }
 }
