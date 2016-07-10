@@ -1,5 +1,15 @@
 import BinaryTree, { Node } from './../BinaryTree';
 
+const defaultComparator = (e, d) => {
+    if(e === d) {
+        return 0;
+    } else if(e < d) {
+        return -1;
+    } else {
+        return 1;
+    }
+};
+
 export default class BinarySearchTree extends BinaryTree {
 
     add = (element, comparator) => {
@@ -8,7 +18,7 @@ export default class BinarySearchTree extends BinaryTree {
         return wasAdded;
     };
 
-    addNode = (currentRoot, element, comparator = (e, d) => e > d) => {
+    addNode = (currentRoot, element, comparator = defaultComparator) => {
         if(currentRoot.data) {
             const comparison = comparator(element, currentRoot.data);
             if(comparison === 0) {
