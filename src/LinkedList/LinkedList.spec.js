@@ -163,7 +163,7 @@ describe('src/LinkedList', () => {
             describe('When removing an element not in the list', () => {
                 let actual;
                 beforeEach(() => {
-                    actual = list.remove({ id: 3 });
+                    actual = list.pop({ id: 3 });
                 });
 
                 it('should return false', () => {
@@ -179,7 +179,7 @@ describe('src/LinkedList', () => {
             describe('When removing the first element in the list', () => {
                 let actual;
                 beforeEach(() => {
-                    actual = list.remove(first);
+                    actual = list.pop(first);
                 });
 
                 it('should return true', () => {

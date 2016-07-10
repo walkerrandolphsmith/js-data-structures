@@ -15,21 +15,21 @@ export default class LinkedList {
         }
     }
 
-    removeNode(current, data_to_remove, comparator = (nd, d) => nd === d) {
+    popNode(current, data_to_pop, comparator = (nd, d) => nd === d) {
         if(current) {
-            if(comparator(current.getData(), data_to_remove)) {
+            if(comparator(current.getData(), data_to_pop)) {
                 return current.getNext();
             } else {
-                current.setNext(this.removeNode(current.getNext(), data_to_remove, comparator));
+                current.setNext(this.popNode(current.getNext(), data_to_pop, comparator));
             }
         } else {
             return undefined;
         }
     }
 
-    remove(data, comparator) {
+    pop(data, comparator) {
         if(this.contains(data, comparator)) {
-            this.head = this.removeNode(this.head, data, comparator);
+            this.head = this.popNode(this.head, data, comparator);
             return true;
         }
         return false;
