@@ -106,7 +106,7 @@ describe('src/LinkedList', () => {
             });
         });
 
-        describe('Given an existing LinkedList with many distinct elements', () => {
+        describe('Given an existing LinkedList with two distinct elements', () => {
             let list;
             let first;
             let second;
@@ -157,6 +157,41 @@ describe('src/LinkedList', () => {
                         return e.id === d;
                     });
                     expect(actual).toBeFalsy();
+                });
+            });
+
+            describe('When removing an element not in the list', () => {
+                let actual;
+                beforeEach(() => {
+                    actual = list.remove({ id: 3 });
+                });
+
+                it('should return false', () => {
+                    expect(actual).toBeFalsy();
+                });
+
+                it('should contain the both elements', () => {
+                    expect(list.contains(first)).toBeTruthy();
+                    expect(list.contains(second)).toBeTruthy();
+                });
+            });
+
+            describe('When removing the first element in the list', () => {
+                let actual;
+                beforeEach(() => {
+                    actual = list.remove(first);
+                });
+
+                it('should return true', () => {
+                    expect(actual).toBeTruthy();
+                });
+
+                it('should not contain the first element', () => {
+                    expect(list.contains(first)).toBeFalsy();
+                });
+
+                it('should contain the second element', () => {
+                    expect(list.contains(second)).toBeTruthy();
                 });
             });
         });

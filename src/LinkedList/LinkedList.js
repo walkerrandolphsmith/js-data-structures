@@ -15,6 +15,26 @@ export default class LinkedList {
         }
     }
 
+    removeNode(current, data_to_remove, comparator = (nd, d) => nd === d) {
+        if(current) {
+            if(comparator(current.getData(), data_to_remove)) {
+                return current.getNext();
+            } else {
+                current.setNext(this.removeNode(current.getNext(), data_to_remove, comparator));
+            }
+        } else {
+            return undefined;
+        }
+    }
+
+    remove(data, comparator) {
+        if(this.contains(data, comparator)) {
+            this.head = this.removeNode(this.head, data, comparator);
+            return true;
+        }
+        return false;
+    }
+
     contains = (element, comparator) => this.head ? this.head.contains(element, comparator) : false;
 
     getFirst = () => this.head ? this.head.getData() : undefined;
@@ -37,6 +57,12 @@ class Node {
         } else {
             this.next = new Node(element);
         }
+    }
+
+    getNext = () => this.next;
+
+    setNext(newNext) {
+        this.next = newNext;
     }
 
     contains = (element, comparator = (e, d) => e === d) =>
