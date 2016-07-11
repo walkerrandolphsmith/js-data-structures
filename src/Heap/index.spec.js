@@ -4,7 +4,8 @@ import Heap from './index';
 describe('src/BinarySearchTree', () => {
     let heap;
     let capacity;
-
+    let element;
+    let actual;
     describe('Given no parameters', () => {
         describe('When creating a Heap', () => {
             beforeEach(() => {
@@ -30,9 +31,26 @@ describe('src/BinarySearchTree', () => {
             beforeEach(() => {
                 heap = new Heap("invalid number");
             });
-            
+
             it('should be a empty', () => {
                 expect(heap.isEmpty()).toBeTruthy();
+            });
+        });
+    });
+
+    describe('Given an empty Heap', () => {
+        beforeEach(() => {
+            capacity = 10;
+            heap = new Heap(capacity);
+            element = { id: 1 };
+        });
+        describe('When inserting an element', () => {
+            beforeEach(() => {
+                actual = heap.insert(element);
+            });
+
+            it('should return true indicating the element was inserted', () => {
+                expect(actual).toBeTruthy();
             });
         });
     });
