@@ -2,7 +2,7 @@ import expect from 'expect';
 import Heap from './index';
 import { compareOnObjectProperty } from './../BinaryTree';
 
-describe.only('src/BinarySearchTree', () => {
+describe('src/BinarySearchTree', () => {
     let heap;
     let capacity;
     let element;
@@ -16,7 +16,7 @@ describe.only('src/BinarySearchTree', () => {
             });
 
             it('should be a empty', () => {
-                expect(heap.isEmpty).toBeTruthy();
+                expect(heap.isEmpty()).toBeTruthy();
             });
         });
 
@@ -26,7 +26,7 @@ describe.only('src/BinarySearchTree', () => {
             });
 
             it('should be a empty', () => {
-                expect(heap.isEmpty()).toBeFalsy();
+                expect(heap.isEmpty()).toBeTruthy();
             });
         });
 
@@ -117,6 +117,29 @@ describe.only('src/BinarySearchTree', () => {
 
             it('should be undefined', () => {
                 expect(actual).toBeFalsy();
+            });
+        });
+    });
+
+    describe('Given a Heap with one element', () => {
+        beforeEach(() => {
+            capacity = 10;
+            heap = new Heap(capacity);
+            element = { id: 1 };
+            heap.insert(element, comparator);
+        });
+
+        describe('When removing an element', () => {
+            beforeEach(() => {
+                actual = heap.remove();
+            });
+
+            it('should be empty', () => {
+                expect(heap.isEmpty()).toBeTruthy();
+            });
+
+            it('should return the element at the root of the heap', () => {
+                expect(actual).toEqual(element);
             });
         });
     });

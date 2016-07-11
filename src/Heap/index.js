@@ -7,7 +7,7 @@ export default class Heap {
         this.nextEmpty = 0;
     }
 
-    isEmpty = () => this.heap.length <= 0;
+    isEmpty = () => this.nextEmpty === 0;
 
     insert = (element, comparator = defaultComparator) => {
         if(this.nextEmpty >= this.capacity) {
@@ -35,6 +35,10 @@ export default class Heap {
     };
 
     remove = (comparator = defaultComparator) => {
-        return this.heap[0];
+        const root = this.heap[0];
+        if(!this.isEmpty()) {
+            this.heap[0] = this.heap[--this.nextEmpty];
+        }
+        return root;
     };
 }
