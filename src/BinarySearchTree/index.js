@@ -1,18 +1,4 @@
-import BinaryTree, { Node } from './../BinaryTree';
-
-export const defaultComparator = (e, d) => e === d ? 0 : -1;
-
-export const compareOnObjectProperty = (prop) => {
-   return (e, d) => {
-       if(e[prop] === d[prop]) {
-           return 0;
-       } else if(e[prop] < d[prop]) {
-           return -1;
-       } else {
-           return 1;
-       }
-   };
-};
+import BinaryTree, { Node, defaultComparator } from './../BinaryTree';
 
 export default class BinarySearchTree extends BinaryTree {
     add = (element, comparator) => {
