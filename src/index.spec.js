@@ -4,6 +4,7 @@ import * as DataStructures from './index';
 import LinkedList from './LinkedList';
 import Stack from './Stack';
 import BinaryTree from './BinaryTree';
+import BinarySearchTree, { compareOnObjectProperty } from './BinarySearchTree';
 
 describe('src/index', () => {
     describe('Given everything is imported from index as DataStructures', () => {
@@ -17,6 +18,16 @@ describe('src/index', () => {
 
         it('should contain a BinaryTree', () => {
             expect(new DataStructures.BinaryTree() instanceof BinaryTree).toBeTruthy();
+        });
+
+        it('should contain a BinarySearchTree that is a BinaryTree', () => {
+            expect(new DataStructures.BinarySearchTree() instanceof BinaryTree).toBeTruthy();
+            expect(new DataStructures.BinarySearchTree() instanceof BinarySearchTree).toBeTruthy();
+        });
+
+        it('should contain a compareOnObjectProperty comparator builder', () => {
+            expect(new DataStructures.compareOnObjectProperty).toBeA('function');
+            expect(new DataStructures.compareOnObjectProperty()).toBeA('function');
         });
     });
 });
