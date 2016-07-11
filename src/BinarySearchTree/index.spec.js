@@ -8,6 +8,7 @@ describe('src/BinarySearchTree', () => {
     let element;
     let comparator;
     let wasAdded;
+    let actual;
 
     describe('Given the default comparator', () => {
         describe('When comparing the element to itself', () => {
@@ -63,7 +64,7 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given an element and empty Binary Search Tree', () => {
         beforeEach(() => {
-           tree = new BinarySearchTree();
+            tree = new BinarySearchTree();
             element = { id: 1 };
         });
 
@@ -80,14 +81,28 @@ describe('src/BinarySearchTree', () => {
                 expect(tree.getData()).toEqual(element);
             });
         });
+
+        describe('When finding the an element not in the tree', () => {
+            beforeEach(() => {
+                element = { id: 1 };
+                actual = tree.find(element);
+            });
+
+            it('should return undefined', () => {
+                expect(actual).toBeFalsy();
+            });
+        });
     });
 
 
     describe('Given an element that is the root of the tree and non-empty Binary Search Tree', () => {
+        beforeEach(() => {
+            root = { id: 0 };
+            tree = new BinarySearchTree(root);
+        });
+
         describe('When adding the element', () => {
             beforeEach(() => {
-                root = { id: 0 };
-                tree = new BinarySearchTree(root);
                 wasAdded = tree.add(root);
             });
 
@@ -101,6 +116,16 @@ describe('src/BinarySearchTree', () => {
 
             it('should not have a left subtree', () => {
                 expect(tree.getLeftSubtree()).toBeFalsy();
+            });
+        });
+
+        describe('When finding the root element', () => {
+            beforeEach(() => {
+                actual = tree.find(root);
+            });
+
+            it('should return the root element', () => {
+                expect(actual).toEqual(root);
             });
         })
     });
@@ -179,6 +204,47 @@ describe('src/BinarySearchTree', () => {
 
             it('should have a right sub tree with a root node containing the element', () => {
                 expect(tree.getRightSubtree().getData() === element).toBeTruthy();
+            });
+        });
+    });
+
+    describe('Given Binary Search Tree with a root and left subtree', () => {
+        beforeEach(() => {
+            root = { id: 2 };
+            element = { id: 1 };
+
+            tree = new BinarySearchTree(root);
+            comparator = compareOnObjectProperty('id');
+            tree.add(element, comparator);
+        });
+
+        describe('When finding the element in the left subtree', () => {
+            beforeEach(() => {
+                actual = tree.find(element, comparator);
+            });
+            it('should return the element in the left subtree', () => {
+                expect(actual).toEqual(element);
+            });
+        });
+    });
+
+    describe('Given Binary Search Tree with a root and right subtree', () => {
+        beforeEach(() => {
+            root = { id: 1 };
+            element = { id: 2 };
+
+            tree = new BinarySearchTree(root);
+            comparator = compareOnObjectProperty('id');
+            tree.add(element, comparator);
+        });
+
+        describe('When finding the element in the right subtree', () => {
+            beforeEach(() => {
+                console.log(tree.getRightSubtree().getData());
+                actual = tree.find(element, comparator);
+            });
+            it('should return the element in the right subtree', () => {
+                expect(actual).toEqual(element);
             });
         });
     });

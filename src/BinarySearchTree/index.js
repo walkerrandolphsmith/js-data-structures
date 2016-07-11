@@ -36,5 +36,25 @@ export default class BinarySearchTree extends BinaryTree {
         } else {
             return { wasAdded: true, root: new Node(element) };
         }
+    };
+
+    find = (element, comparator) => {
+        console.log(element, this.root);
+        return this.findNode(this.root, element, comparator);
     }
+
+    findNode = (currentRoot, element, comparator = defaultComparator) => {
+        if(currentRoot && currentRoot.data) {
+            const comparison = comparator(element, currentRoot.data);
+            if(comparison === 0) {
+                return currentRoot.data;
+            } else if(comparison < 0) {
+                return this.findNode(currentRoot.left, element, comparator);
+            } else {
+                return this.findNode(currentRoot.right, element, comparator);
+            }
+        } else {
+            return undefined;
+        }
+    };
 }
