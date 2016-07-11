@@ -38,10 +38,7 @@ export default class BinarySearchTree extends BinaryTree {
         }
     };
 
-    find = (element, comparator) => {
-        console.log(element, this.root);
-        return this.findNode(this.root, element, comparator);
-    };
+    find = (element, comparator) => this.findNode(this.root, element, comparator);
 
     findNode = (currentRoot, element, comparator = defaultComparator) => {
         if(currentRoot && currentRoot.data) {
@@ -94,7 +91,6 @@ export default class BinarySearchTree extends BinaryTree {
                 } else if(!currentRoot.right) {
                     nodeToReturn = currentRoot.left;
                 } else {
-                    console.log(currentRoot.left)
                     if(!currentRoot.left.right) {
                         currentRoot.data = currentRoot.left.data;
                         currentRoot.left = currentRoot.left.left;
