@@ -227,4 +227,23 @@ describe('src/BinarySearchTree', () => {
             });
         });
     });
+
+    describe('Given Binary Search Tree with a right subtree that has a right subtree', () => {
+        beforeEach(() => {
+            element = { id: 2 };
+            tree = new BinarySearchTree({ id: 0 });
+            tree.add({ id: -1 }, comparator);
+            tree.add({ id: 1 }, comparator);
+            tree.add(element, comparator);
+        });
+
+        describe('When finding largest child of the root', () => {
+            beforeEach(() => {
+                actual = tree.findLargestChild(tree.root, comparator);
+            });
+            it('should return the element in the right subtree', () => {
+                expect(actual).toEqual(element);
+            });
+        });
+    });
 });

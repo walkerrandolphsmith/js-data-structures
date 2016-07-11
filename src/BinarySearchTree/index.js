@@ -41,7 +41,7 @@ export default class BinarySearchTree extends BinaryTree {
     find = (element, comparator) => {
         console.log(element, this.root);
         return this.findNode(this.root, element, comparator);
-    }
+    };
 
     findNode = (currentRoot, element, comparator = defaultComparator) => {
         if(currentRoot && currentRoot.data) {
@@ -57,4 +57,15 @@ export default class BinarySearchTree extends BinaryTree {
             return undefined;
         }
     };
+
+    findLargestChild = (parent) => {
+        if(parent.right.right) {
+            return this.findLargestChild(parent.right);
+        } else {
+            const max = parent.right.data;
+            parent.right = parent.right.left;
+            return max;
+        }
+    };
+
 }
