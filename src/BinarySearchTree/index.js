@@ -68,4 +68,42 @@ export default class BinarySearchTree extends BinaryTree {
         }
     };
 
+    remove = (element, comparator) => {
+        const { root, isRemoved } = this.removeNode(this.root, element, comparator);
+        this.root = root;
+        return isRemoved;
+    };
+
+    removeNode = (currentRoot, element, comparator) => {
+        let nodeToReturn = currentRoot;
+        let isRemoved = false;
+        if(currentRoot) {
+            const comparison = comparator(element, currentRoot.data);
+            if(comparison < 0) {
+                const result = this.removeNode(currentRoot.left, element, comparator);
+                currentRoot.left = result.root;
+                isRemoved = result.isRemoved;
+            } else if(comparison > 0) {
+                 const result = this.removeNode(currentRoot.right, element, comparator);
+                currentRoot.right = result.root;
+                isRemoved = result.isRemoved;
+            } else {
+                isRemoved = true;
+                if(!currentRoot.left) {
+                    nodeToReturn = currentRoot.right;
+                } else if(!currentRoot.right) {
+                    nodeToReturn = currentRoot.left;
+                } else {
+                    console.log(currentRoot.left)
+                    if(!currentRoot.left.right) {
+                        currentRoot.data = currentRoot.left.data;
+                        currentRoot.left = currentRoot.left.left;
+                    } else {
+                        currentRoot.data = this.findLargestChild(currentRoot.left);
+                    }
+                }
+            }
+        }
+        return {root: nodeToReturn, isRemoved: isRemoved};
+    };
 }

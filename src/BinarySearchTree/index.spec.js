@@ -246,4 +246,70 @@ describe('src/BinarySearchTree', () => {
             });
         });
     });
+
+    describe('Given Binary Search Tree with two generations of children excluding root', () => {
+        let root = { id: 10 };
+        let leftChild = { id: 5 };
+        let leftLeftChild = { id: 4 };
+        let rightChild = { id: 20 };
+        let rightLeftChild = { id: 18 };
+        let rightLeftRightChild = { id: 19 };
+        let rightRightChild = { id: 21 };
+
+        beforeEach(() => {
+            tree = new BinarySearchTree({ id: 10 });
+            tree.add(leftChild, comparator);
+            tree.add(leftLeftChild, comparator);
+            tree.add(rightChild, comparator);
+            tree.add(rightLeftChild, comparator);
+            tree.add(rightLeftRightChild, comparator);
+            tree.add(rightRightChild, comparator);
+        });
+
+        describe('When removing the root', () => {
+            beforeEach(() => {
+                actual = tree.remove(root, comparator);
+            });
+            it('should return the element in the right subtree', () => {
+                expect(actual).toBeTruthy();
+            });
+        });
+
+        describe('When removing the left child', () => {
+            beforeEach(() => {
+                actual = tree.remove(leftChild, comparator);
+            });
+            it('should return the element in the right subtree', () => {
+                expect(actual).toBeTruthy();
+            });
+        });
+
+        describe('When removing the right child', () => {
+            beforeEach(() => {
+                actual = tree.remove(rightChild, comparator);
+            });
+            it('should return the element in the right subtree', () => {
+                expect(actual).toBeTruthy();
+            });
+        });
+
+        describe('When removing the left left child', () => {
+            beforeEach(() => {
+                actual = tree.remove(leftLeftChild, comparator);
+            });
+            it('should return the element in the right subtree', () => {
+                expect(actual).toBeTruthy();
+            });
+        });
+
+        describe('When removing the right right child', () => {
+            beforeEach(() => {
+                actual = tree.remove(rightChild, comparator);
+                console.log(actual);
+            });
+            it('should return the element in the right subtree', () => {
+                expect(actual).toBeTruthy();
+            });
+        });
+    });
 });
