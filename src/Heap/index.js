@@ -12,6 +12,7 @@ export default class Heap {
             return false;
         } else {
             this.heap[this.nextEmpty] = element;
+            this.nextEmpty++;
             return true;
         }
     };
