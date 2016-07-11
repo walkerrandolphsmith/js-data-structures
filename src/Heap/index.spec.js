@@ -2,7 +2,7 @@ import expect from 'expect';
 import Heap from './index';
 import { compareOnObjectProperty } from './../BinaryTree';
 
-describe('src/BinarySearchTree', () => {
+describe.only('src/BinarySearchTree', () => {
     let heap;
     let capacity;
     let element;
@@ -47,6 +47,7 @@ describe('src/BinarySearchTree', () => {
             heap = new Heap(capacity);
             element = { id: 1 };
         });
+
         describe('When inserting an element', () => {
             beforeEach(() => {
                 actual = heap.insert(element);
@@ -106,6 +107,16 @@ describe('src/BinarySearchTree', () => {
 
             it('should have the larger element at the second index', () => {
                 expect(heap.heap[1]).toEqual(largerElement);
+            });
+        });
+
+        describe('When removing an element', () => {
+            beforeEach(() => {
+                actual = heap.remove();
+            });
+
+            it('should be undefined', () => {
+                expect(actual).toBeFalsy();
             });
         });
     });

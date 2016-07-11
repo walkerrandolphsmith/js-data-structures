@@ -32,5 +32,9 @@ export default class Heap {
         const temp = this.heap[parent];
         this.heap[parent] = this.heap[child];
         this.heap[child] = temp;
-    }
+    };
+
+    remove = (comparator = defaultComparator) => {
+        return this.heap[0];
+    };
 }
