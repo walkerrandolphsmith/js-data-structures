@@ -4,7 +4,10 @@ import BinarySearchTree, { defaultComparator, compareOnObjectProperty } from './
 
 describe('src/BinarySearchTree', () => {
     let tree;
+    let root;
     let element;
+    let comparator;
+    let wasAdded;
 
     describe('Given the default comparator', () => {
         describe('When comparing the element to itself', () => {
@@ -22,10 +25,10 @@ describe('src/BinarySearchTree', () => {
     });
 
     describe('Given the compareOnObjectProperty comparator and object property name id', () => {
-        let comparator;
         beforeEach(() => {
             comparator = compareOnObjectProperty('id');
         });
+
         describe('When comparing the elements that are equal', () => {
             it('should return zero', () => {
                 expect(comparator({ id: 1 }, { id: 1 })).toEqual(0);
@@ -59,11 +62,13 @@ describe('src/BinarySearchTree', () => {
     });
 
     describe('Given an element and empty Binary Search Tree', () => {
+        beforeEach(() => {
+           tree = new BinarySearchTree();
+            element = { id: 1 };
+        });
+
         describe('When adding the element', () => {
-            let wasAdded;
             beforeEach(() => {
-                tree = new BinarySearchTree();
-                element = { id: 1 };
                 wasAdded = tree.add(element);
             });
 
@@ -74,14 +79,12 @@ describe('src/BinarySearchTree', () => {
             it('should have a root node that contains the element', () => {
                 expect(tree.getData()).toEqual(element);
             });
-        })
+        });
     });
 
 
     describe('Given an element that is the root of the tree and non-empty Binary Search Tree', () => {
         describe('When adding the element', () => {
-            let wasAdded;
-            let root;
             beforeEach(() => {
                 root = { id: 0 };
                 tree = new BinarySearchTree(root);
@@ -104,8 +107,6 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given an element not in the tree and non-empty Binary Search Tree', () => {
         describe('When adding the element', () => {
-            let wasAdded;
-            let root;
             beforeEach(() => {
                 root = { id: 0 };
                 tree = new BinarySearchTree(root);
@@ -129,9 +130,6 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given non-empty Binary Search Tree and an element less than the root', () => {
         describe('When adding the element', () => {
-            let wasAdded;
-            let root;
-            let comparator = compareOnObjectProperty('id');
             beforeEach(() => {
                 root = { id: 10 };
                 element = { id: 1 };
@@ -159,13 +157,11 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given non-empty Binary Search Tree and an element greater than the root', () => {
         describe('When adding the element', () => {
-            let wasAdded;
-            let root;
-            let comparator = compareOnObjectProperty('id');
             beforeEach(() => {
                 root = { id: 0 };
                 element = { id: 2 };
                 tree = new BinarySearchTree(root);
+                comparator = compareOnObjectProperty('id');
                 wasAdded = tree.add(element, comparator);
             });
 
