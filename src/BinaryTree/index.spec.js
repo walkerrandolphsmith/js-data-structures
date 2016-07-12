@@ -1,5 +1,5 @@
 import expect from 'expect';
-import BinaryTree, { Node, defaultComparator, compareOnObjectProperty } from './index';
+import BinaryTree, { Node } from './index';
 
 describe('src/BinaryTree', () => {
     let tree;
@@ -7,42 +7,6 @@ describe('src/BinaryTree', () => {
     let data;
     let leftSubTree;
     let rightSubTree;
-
-    describe('Given the default comparator', () => {
-        let element = { id: 1 };
-        describe('When comparing the element to itself', () => {
-            it('should return zero', () => {
-                expect(defaultComparator(element, element)).toEqual(0);
-            });
-        });
-        describe('When comparing two distinct elements', () => {
-            it('should return zero', () => {
-                expect(defaultComparator(element, { id: 2 })).toEqual(-1);
-            });
-        });
-    });
-
-    describe('Given the compareOnObjectProperty comparator and object property name id', () => {
-        let comparator = compareOnObjectProperty('id');
-        describe('When comparing the elements that are equal', () => {
-            it('should return zero', () => {
-                expect(comparator({ id: 1 }, { id: 1 })).toEqual(0);
-            });
-        });
-
-        describe('When comparing two elements such that the first is less than the second', () => {
-            it('should return 1', () => {
-                expect(comparator({ id: 1 }, { id: 2 })).toEqual(-1);
-            });
-        });
-
-        describe('When comparing two elements such that the first is greater than the second', () => {
-            it('should return 1', () => {
-                expect(comparator({ id: 5 }, { id: 2 })).toEqual(1);
-            });
-        });
-    });
-
 
     describe('Given no parameters', () => {
         describe('When creating a BinaryTree', () => {

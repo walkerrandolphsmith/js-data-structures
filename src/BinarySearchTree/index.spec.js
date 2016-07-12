@@ -1,12 +1,13 @@
 import expect from 'expect';
-import BinaryTree, { compareOnObjectProperty } from './../BinaryTree';
+import BinaryTree from './../BinaryTree';
+import { objectPropComparator } from './../Comparator';
 import BinarySearchTree from './index';
 
 describe('src/BinarySearchTree', () => {
     let tree;
     let root;
     let element = { id: 1 };
-    let comparator = compareOnObjectProperty('id');
+    let comparator = objectPropComparator('id');
     let actual;
 
     describe('Given no parameters', () => {

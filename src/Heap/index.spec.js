@@ -1,6 +1,6 @@
 import expect from 'expect';
 import Heap from './index';
-import { compareOnObjectProperty } from './../BinaryTree';
+import { objectPropComparator } from './../Comparator';
 
 describe('src/BinarySearchTree', () => {
     let heap;
@@ -8,7 +8,7 @@ describe('src/BinarySearchTree', () => {
     let element = { id: 1 };
     let largerElement = { id: 2 };
     let largestElement = { id: 3 };
-    let comparator = compareOnObjectProperty('id');
+    let comparator = objectPropComparator('id');
     let actual;
     describe('Given no parameters', () => {
         describe('When creating a Heap', () => {

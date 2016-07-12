@@ -1,17 +1,3 @@
-export const defaultComparator = (e, d) => e === d ? 0 : -1;
-
-export const compareOnObjectProperty = (prop) => {
-    return (e, d) => {
-        if(e[prop] === d[prop]) {
-            return 0;
-        } else if(e[prop] < d[prop]) {
-            return -1;
-        } else {
-            return 1;
-        }
-    };
-};
-
 export default class BinaryTree {
     constructor(data, left, right) {
         this.root = data instanceof Node ? data : new Node(data);

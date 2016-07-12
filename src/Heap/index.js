@@ -1,4 +1,4 @@
-import { defaultComparator } from './../BinaryTree';
+import { defaultComparator } from './../Comparator';
 
 export default class Heap {
     constructor(capacity) {
