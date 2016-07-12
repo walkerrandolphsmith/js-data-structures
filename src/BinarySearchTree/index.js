@@ -1,5 +1,5 @@
 import BinaryTree, { Node } from './../BinaryTree';
-import { defaultComparator } from './../Comparator';
+import { defaultComparator } from './../Comparators';
 
 export default class BinarySearchTree extends BinaryTree {
     add = (element, comparator) => {

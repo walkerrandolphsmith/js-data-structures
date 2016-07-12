@@ -1,4 +1,4 @@
-import { defaultComparator } from './../Comparator';
+import { defaultComparator } from './../Comparators';
 
 export default class Heap {
     constructor(capacity) {
