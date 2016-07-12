@@ -16,12 +16,12 @@ export default class Heap {
             this.heap[this.nextEmpty] = element;
             let child = this.nextEmpty++;
             if(child > 0) {
-                let parent = (child - 1) / 2;
+                let parent = Math.floor((child - 1) / 2);
                 const comparison = comparator(this.heap[parent], this.heap[child]);
                 while(parent >= 0 && comparison === 1) {
                     this.swap(parent, child);
                     child = parent;
-                    parent = (child - 1) / 2;
+                    parent = Math.floor((child - 1) / 2);
                 }
             }
             return true;

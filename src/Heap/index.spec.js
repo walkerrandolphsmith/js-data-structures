@@ -4,7 +4,7 @@ import { compareOnObjectProperty } from './../BinaryTree';
 
 describe('src/BinarySearchTree', () => {
     let heap;
-    let capacity = 10;
+    let capacity = 4;
     let element = { id: 1 };
     let largerElement = { id: 2 };
     let comparator = compareOnObjectProperty('id');
@@ -109,6 +109,19 @@ describe('src/BinarySearchTree', () => {
         describe('When removing an element', () => {
             beforeEach(() => {
                 actual = heap.remove();
+            });
+
+            it('should be undefined', () => {
+                expect(actual).toBeFalsy();
+            });
+        });
+
+        describe('When inserting one more element than the heaps capacity', () => {
+            beforeEach(() => {
+                for(var i = 0; i < capacity; i++) {
+                    heap.insert({ id: i }, comparator);
+                }
+                actual = heap.insert({ id: capacity + 1 }, comparator);
             });
 
             it('should be undefined', () => {
