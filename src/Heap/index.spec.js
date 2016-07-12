@@ -4,11 +4,11 @@ import { compareOnObjectProperty } from './../BinaryTree';
 
 describe('src/BinarySearchTree', () => {
     let heap;
-    let capacity;
-    let element;
-    let actual;
-    let largerElement;
+    let capacity = 10;
+    let element = { id: 1 };
+    let largerElement = { id: 2 };
     let comparator = compareOnObjectProperty('id');
+    let actual;
     describe('Given no parameters', () => {
         describe('When creating a Heap', () => {
             beforeEach(() => {
@@ -22,7 +22,7 @@ describe('src/BinarySearchTree', () => {
 
         describe('When creating a Heap with a capacity', () => {
             beforeEach(() => {
-                heap = new Heap(10);
+                heap = new Heap(capacity);
             });
 
             it('should be a empty', () => {
@@ -43,9 +43,7 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given an empty Heap', () => {
         beforeEach(() => {
-            capacity = 10;
             heap = new Heap(capacity);
-            element = { id: 1 };
         });
 
         describe('When inserting an element', () => {
@@ -64,7 +62,6 @@ describe('src/BinarySearchTree', () => {
 
         describe('When inserting elements of strictly increasing values', () => {
             beforeEach(() => {
-                largerElement = { id: 2 };
                 heap.insert(element, comparator);
                 actual = heap.insert(largerElement, comparator);
             });
@@ -88,7 +85,6 @@ describe('src/BinarySearchTree', () => {
 
         describe('When inserting elements of strictly decreasing values', () => {
             beforeEach(() => {
-                largerElement = { id: 2 };
                 heap.insert(largerElement, comparator);
                 actual = heap.insert(element, comparator);
             });
@@ -123,9 +119,7 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given a Heap with one element', () => {
         beforeEach(() => {
-            capacity = 10;
             heap = new Heap(capacity);
-            element = { id: 1 };
             heap.insert(element, comparator);
         });
 
