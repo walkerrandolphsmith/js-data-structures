@@ -7,6 +7,7 @@ describe('src/BinarySearchTree', () => {
     let capacity = 4;
     let element = { id: 1 };
     let largerElement = { id: 2 };
+    let largestElement = { id: 3 };
     let comparator = compareOnObjectProperty('id');
     let actual;
     describe('Given no parameters', () => {
@@ -147,6 +148,76 @@ describe('src/BinarySearchTree', () => {
 
             it('should return the element at the root of the heap', () => {
                 expect(actual).toEqual(element);
+            });
+        });
+    });
+
+    describe('Given a Heap with three elements in which the right child is greater than the left child', () => {
+        beforeEach(() => {
+            heap = new Heap(capacity);
+            heap.insert(element, comparator);
+            heap.insert(largerElement, comparator);
+            heap.insert(largestElement, comparator);
+        });
+
+        describe('When removing all elements', () => {
+            it('should remove the smallest element', () => {
+                expect(heap.remove(comparator)).toEqual(element);
+                expect(heap.remove(comparator)).toEqual(largerElement);
+                expect(heap.remove(comparator)).toEqual(largestElement);
+                expect(heap.isEmpty()).toBeTruthy();
+            });
+        });
+    });
+
+    describe('Given a Heap with three elements in which the right child is less than the left child', () => {
+        beforeEach(() => {
+            heap = new Heap(capacity);
+            heap.insert(element, comparator);
+            heap.insert(largestElement, comparator);
+            heap.insert(largerElement, comparator);
+        });
+
+        describe('When removing all elements', () => {
+            it('should be the smallest element', () => {
+                expect(heap.remove(comparator)).toEqual(element);
+                expect(heap.remove(comparator)).toEqual(largerElement);
+                expect(heap.remove(comparator)).toEqual(largestElement);
+                expect(heap.isEmpty()).toBeTruthy();
+            });
+        });
+    });
+
+    describe('Given a Heap with a full left sub tree and full right sub tree', () => {
+        let root = { id: 1 };
+        let left = { id: 2 };
+        let right = { id: 3 };
+        let leftLeft = { id: 4 };
+        let leftRight = { id: 5 };
+        let rightLeft = { id: 6 };
+        let rightRight = { id: 7 };
+        beforeEach(() => {
+            capacity = 9;
+            heap = new Heap(capacity);
+            heap.insert(root, comparator);
+            heap.insert(left, comparator);
+            heap.insert(right, comparator);
+            heap.insert(leftLeft, comparator);
+            heap.insert(leftRight, comparator);
+            heap.insert(rightLeft, comparator);
+            heap.insert(rightRight, comparator);
+        });
+
+        describe('When removing all elements', () => {
+            it('should the be the smallest remaining element', () => {
+                expect(heap.remove(comparator)).toEqual(root);
+                expect(heap.remove(comparator)).toEqual(left);
+                expect(heap.remove(comparator)).toEqual(right);
+                expect(heap.remove(comparator)).toEqual(leftLeft);
+                expect(heap.remove(comparator)).toEqual(leftRight);
+                expect(heap.remove(comparator)).toEqual(rightLeft);
+                expect(heap.remove(comparator)).toEqual(rightRight);
+                expect(heap.isEmpty()).toBeTruthy();
             });
         });
     });
