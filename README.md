@@ -86,7 +86,7 @@ Given an element and a comparator function, remove the first element that matche
 
 `remove(element, comparator)` Given an element and a comparator function, remove the first element that matches the comparison.
 
-### Huffman Tree
+### Huffman Tree : Binary Tree
 ```
     *
   /   \
@@ -95,7 +95,11 @@ e       *
      n     s
 ```
 
-### Heap
+`add(element, code)` Given an element and a bit string, add a node in the tree for the element such that the tree can be traversed using the bit string as a sequence of edges.
+
+`decode(code)` Given a bit string, retrieve the element in the tree it corresponds to.
+
+### Heap : Binary Tree
 ```
     1
   /   \
@@ -103,3 +107,6 @@ e       *
   \   /   \
    4 5     6
 ```
+`insert(element, comparator)` Given an element and a comparator function, insert the element in the heap.
+
+`remove(comparator)` Given a comparator (to reshap the heap), Retrieve the root node which is the largest or smallest element in the heap.
