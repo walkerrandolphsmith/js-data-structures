@@ -5,6 +5,7 @@ import LinkedList from './LinkedList';
 import Stack from './Stack';
 import BinaryTree from './BinaryTree';
 import BinarySearchTree from './BinarySearchTree';
+import HuffmanTree from './HuffmanTree';
 
 describe('src/index', () => {
     describe('Given everything is imported from index as DataStructures', () => {
@@ -23,6 +24,11 @@ describe('src/index', () => {
         it('should contain a BinarySearchTree that is a BinaryTree', () => {
             expect(new DataStructures.BinarySearchTree() instanceof BinaryTree).toBeTruthy();
             expect(new DataStructures.BinarySearchTree() instanceof BinarySearchTree).toBeTruthy();
+        });
+
+        it('should contain a HuffmanTree that is a BinaryTree', () => {
+            expect(new DataStructures.HuffmanTree() instanceof BinaryTree).toBeTruthy();
+            expect(new DataStructures.HuffmanTree() instanceof HuffmanTree).toBeTruthy();
         });
 
         it('should contain a default comparator', () => {
