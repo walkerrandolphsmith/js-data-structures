@@ -1,8 +1,13 @@
 export default class BinaryTree {
+
     constructor(data, left, right) {
         this.root = data instanceof Node ? data : new Node(data);
-        this.root.left = left instanceof BinaryTree ? left.root : undefined;
-        this.root.right = right instanceof BinaryTree ? right.root : undefined;
+        if(left !== null) {
+            this.root.left = left instanceof BinaryTree ? left.root : undefined;
+        }
+        if(right !== null) {
+            this.root.right = right instanceof BinaryTree ? right.root : undefined;
+        }
     }
 
     getData = () => this.root.data;
@@ -12,6 +17,8 @@ export default class BinaryTree {
     getLeftSubtree = () => this.root && this.root.left ? new BinaryTree(this.root.left) : undefined;
 
     getRightSubtree = () => this.root && this.root.right ? new BinaryTree(this.root.right) : undefined;
+
+    isEmpty = () => this.root.data ? false : true;
 }
 
 export class Node {
