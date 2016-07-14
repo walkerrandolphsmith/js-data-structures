@@ -3,8 +3,8 @@ import AdjacencyMatrix from './index';
 
 describe('src/AdjacencyMatrix', () => {
     let matrix;
-    let v;
-    let w;
+    let v = 1;
+    let w = 1;
     describe('Given no parameters', () => {
         describe('When creating an AdjacencyMatrix', () => {
             beforeEach(() => {
@@ -37,8 +37,6 @@ describe('src/AdjacencyMatrix', () => {
 
         describe('When adding an edge between vertex v and w', () => {
             beforeEach(() => {
-                v = 1;
-                w = 1;
                 matrix.addEdge(v, w);
             });
 
@@ -56,13 +54,41 @@ describe('src/AdjacencyMatrix', () => {
         });
 
         describe('When determining if there is an edge between vertex v and w', () => {
-            beforeEach(() => {
-                v = 1; 
-                w = 1;
-            });
-
             it('should not have the edge', () => {
                 expect(matrix.hasEdge(v, w)).toBeFalsy();
+            });
+        });
+    });
+
+    describe('Given an existing AdjacencyMatrix with an edge', () => {
+        beforeEach(() => {
+            matrix = new AdjacencyMatrix();
+            matrix.addEdge(v, w)
+        });
+
+        describe('When adding an edge between vertex x and y', () => {
+            let x = 2;
+            let y = 2;
+            beforeEach(() => {
+                matrix.addEdge(x, y);
+            });
+
+            it('should have two edges', () => {
+                for(let i = 0; i < 5; i++) {
+                    for(let j = 0; j < 5; j++) {
+                        if(i === v && j === w || i === x && j === y){
+                            expect(matrix.matrix[i][j]).toBeTruthy();
+                        } else {
+                            expect(matrix.matrix[i][j]).toBeFalsy();
+                        }
+                    }
+                }
+            });
+        });
+
+        describe('When determining if there is an edge between vertex v and w', () => {
+            it('should not have the edge', () => {
+                expect(matrix.hasEdge(v, w)).toBeTruthy();
             });
         });
     });

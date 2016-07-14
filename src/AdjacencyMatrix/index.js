@@ -11,5 +11,5 @@ export default class AdjacencyMatrix {
         this.matrix[i][j] = true;
     };
 
-    hasEdge = () => false;
+    hasEdge = (i, j) => this.matrix[i][j];
 }
