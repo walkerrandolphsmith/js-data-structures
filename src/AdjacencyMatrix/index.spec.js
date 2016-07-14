@@ -3,6 +3,8 @@ import AdjacencyMatrix from './index';
 
 describe('src/AdjacencyMatrix', () => {
     let matrix;
+    let v;
+    let w;
     describe('Given no parameters', () => {
         describe('When creating an AdjacencyMatrix', () => {
             beforeEach(() => {
@@ -33,21 +35,34 @@ describe('src/AdjacencyMatrix', () => {
             matrix = new AdjacencyMatrix();
         });
 
-        describe('When adding an edge', () => {
+        describe('When adding an edge between vertex v and w', () => {
             beforeEach(() => {
-                matrix.addEdge(1,1);
+                v = 1;
+                w = 1;
+                matrix.addEdge(v, w);
             });
 
             it('should have only one edge', () => {
                 for(let i = 0; i < 5; i++) {
                     for(let j = 0; j < 5; j++) {
-                        if(i === 1 && j === 1){
+                        if(i === v && j === w){
                             expect(matrix.matrix[i][j]).toBeTruthy();
                         } else {
                             expect(matrix.matrix[i][j]).toBeFalsy();
                         }
                     }
                 }
+            });
+        });
+
+        describe('When determining if there is an edge between vertex v and w', () => {
+            beforeEach(() => {
+                v = 1; 
+                w = 1;
+            });
+
+            it('should not have the edge', () => {
+                expect(matrix.hasEdge(v, w)).toBeFalsy();
             });
         });
     });
