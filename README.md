@@ -6,7 +6,7 @@
 - [Binary Search Tree](#binary-serach-tree)
 - [Huffman Tree](#huffman-tree)
 - [Heap](#heap)
-
+- [Adjacency Matrix](#adjacency-matrix)
 
 ### Linked List
 ```
@@ -110,3 +110,15 @@ e       *
 `insert(element, comparator)` Given an element and a comparator function, insert the element in the heap.
 
 `remove(comparator)` Given a comparator (to reshap the heap), Retrieve the root node which is the largest or smallest element in the heap.
+
+### Adjacency Matrix
+```
+[ 1 0 1 ] 
+[ 0 1 0 ]
+[ 1 0 1 ]
+```
+`addEdge(v, w)` Given two verticies then create an edge with an initial vertex of v and terminal vertex of w.
+
+`hasEdge(v, w)` Given two vertices determine if there is an edge with a initial vertex of v and terminal vertex of w.
+
+`removeEdge(v, w)` Given two vertices remove the edge with an initial vertex of v and terminal vertex of w.
