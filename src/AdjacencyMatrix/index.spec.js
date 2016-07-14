@@ -54,7 +54,7 @@ describe('src/AdjacencyMatrix', () => {
         });
 
         describe('When determining if there is an edge between vertex v and w', () => {
-            it('should not have the edge', () => {
+            it('should not be adjacent', () => {
                 expect(matrix.hasEdge(v, w)).toBeFalsy();
             });
         });
@@ -87,7 +87,7 @@ describe('src/AdjacencyMatrix', () => {
         });
 
         describe('When determining if there is an edge between vertex v and w', () => {
-            it('should not have the edge', () => {
+            it('should be adjacent', () => {
                 expect(matrix.hasEdge(v, w)).toBeTruthy();
             });
         });
@@ -96,19 +96,19 @@ describe('src/AdjacencyMatrix', () => {
             beforeEach(() => {
                 matrix.remove(v, w);
             });
-            it('should not have the edge', () => {
+            it('should not be adjacent', () => {
                 expect(matrix.hasEdge(v, w)).toBeFalsy();
             });
         });
 
-        describe('When determining edges that contain vertex v such that v is the initial vertex', () => {
+        describe('When determining edges that contain a given initial vertex', () => {
             it('should return a list of terminal vertices', () => {
                 expect(matrix.outEdges(v)).toInclude(w);
             });
         });
 
-        describe('When determining edges that contain vertex w such that w is the terminal vertex', () => {
-            it('should return a list of terminal vertices', () => {
+        describe('When determining edges that contain a given terminal vertex', () => {
+            it('should return a list of initial vertices', () => {
                 expect(matrix.inEdges(w)).toInclude(v);
             });
         });
