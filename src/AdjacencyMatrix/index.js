@@ -15,11 +15,21 @@ export default class AdjacencyMatrix {
 
     outEdges = (i) => {
         let edges = [];
-        for(let j = 0; j < this.max; j++){
+        for(let j = 0; j < this.max; j++) {
             if(this.matrix[i][j]) {
                 edges.push(j);
             }
         }
         return edges;
-    }
+    };
+
+    inEdges = (i) => {
+        let edges = [];
+        for(let j = 0; j < this.max; j++) {
+            if(this.matrix[j][i]) {
+                edges.push(j);
+            }
+        }
+        return edges;
+    };
 }

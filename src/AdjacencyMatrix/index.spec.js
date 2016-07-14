@@ -106,5 +106,11 @@ describe('src/AdjacencyMatrix', () => {
                 expect(matrix.outEdges(v)).toInclude(w);
             });
         });
+
+        describe('When determining edges that contain vertex w such that w is the terminal vertex', () => {
+            it('should return a list of terminal vertices', () => {
+                expect(matrix.inEdges(w)).toInclude(v);
+            });
+        });
     });
 });
