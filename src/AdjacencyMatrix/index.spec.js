@@ -100,5 +100,11 @@ describe('src/AdjacencyMatrix', () => {
                 expect(matrix.hasEdge(v, w)).toBeFalsy();
             });
         });
+
+        describe('When determining edges that contain vertex v such that v is the initial vertex', () => {
+            it('should return a list of terminal vertices', () => {
+                expect(matrix.outEdges(v)).toInclude(w);
+            });
+        });
     });
 });

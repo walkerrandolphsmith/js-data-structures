@@ -12,4 +12,14 @@ export default class AdjacencyMatrix {
     hasEdge = (i, j) => this.matrix[i][j];
 
     remove = (i, j) => this.matrix[i][j] = false;
+
+    outEdges = (i) => {
+        let edges = [];
+        for(let j = 0; j < this.max; j++){
+            if(this.matrix[i][j]) {
+                edges.push(j);
+            }
+        }
+        return edges;
+    }
 }
