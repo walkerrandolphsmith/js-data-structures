@@ -6,6 +6,7 @@ import Stack from './Stack';
 import BinaryTree from './BinaryTree';
 import BinarySearchTree from './BinarySearchTree';
 import HuffmanTree from './HuffmanTree';
+import AdjacencyMatrix from './AdjacencyMatrix';
 
 describe('src/index', () => {
     describe('Given everything is imported from index as DataStructures', () => {
@@ -29,6 +30,10 @@ describe('src/index', () => {
         it('should contain a HuffmanTree that is a BinaryTree', () => {
             expect(new DataStructures.HuffmanTree() instanceof BinaryTree).toBeTruthy();
             expect(new DataStructures.HuffmanTree() instanceof HuffmanTree).toBeTruthy();
+        });
+
+        it('should contain a AdjacencyMatrix', () => {
+            expect(new DataStructures.AdjacencyMatrix() instanceof AdjacencyMatrix).toBeTruthy();
         });
 
         it('should contain a default comparator', () => {
