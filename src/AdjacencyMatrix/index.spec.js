@@ -91,5 +91,14 @@ describe('src/AdjacencyMatrix', () => {
                 expect(matrix.hasEdge(v, w)).toBeTruthy();
             });
         });
+
+        describe('When removing an edge between v and w', () => {
+            beforeEach(() => {
+                matrix.remove(v, w);
+            });
+            it('should not have the edge', () => {
+                expect(matrix.hasEdge(v, w)).toBeFalsy();
+            });
+        });
     });
 });

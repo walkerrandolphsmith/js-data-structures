@@ -7,9 +7,9 @@ export default class AdjacencyMatrix {
         }
     }
 
-    addEdge = (i, j) => {
-        this.matrix[i][j] = true;
-    };
+    addEdge = (i, j) => this.matrix[i][j] = true;
 
     hasEdge = (i, j) => this.matrix[i][j];
+
+    remove = (i, j) => this.matrix[i][j] = false;
 }
