@@ -6,4 +6,8 @@ export default class AdjacencyMatrix {
             this.matrix[i] = [];
         }
     }
+
+    addEdge = (i, j) => {
+        this.matrix[i][j] = true;
+    }
 }
