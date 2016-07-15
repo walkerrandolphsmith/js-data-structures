@@ -7,6 +7,7 @@ import BinaryTree from './BinaryTree';
 import BinarySearchTree from './BinarySearchTree';
 import HuffmanTree from './HuffmanTree';
 import AdjacencyMatrix from './AdjacencyMatrix';
+import Graph from './Graph';
 
 describe('src/index', () => {
     describe('Given everything is imported from index as DataStructures', () => {
@@ -34,6 +35,10 @@ describe('src/index', () => {
 
         it('should contain a AdjacencyMatrix', () => {
             expect(new DataStructures.AdjacencyMatrix() instanceof AdjacencyMatrix).toBeTruthy();
+        });
+
+        it('should contain a Graph', () => {
+            expect(new DataStructures.Graph() instanceof Graph).toBeTruthy();
         });
 
         it('should contain a default comparator', () => {
