@@ -41,13 +41,22 @@ describe('src/index', () => {
             expect(new DataStructures.Graph() instanceof Graph).toBeTruthy();
         });
 
-        it('should contain a default comparator', () => {
+        it('should contain a default realtional comparator', () => {
             expect(DataStructures.RelationalComparators.defaultComparator).toBeA('function');
         });
 
-        it('should contain a objectPropComparator comparator builder', () => {
+        it('should contain a objectPropComparator relational comparator builder', () => {
             expect(DataStructures.RelationalComparators.objectPropComparator).toBeA('function');
             expect(DataStructures.RelationalComparators.objectPropComparator()).toBeA('function');
+        });
+
+        it('should contain a default equality comparator', () => {
+            expect(DataStructures.EqualityComparators.defaultComparator).toBeA('function');
+        });
+
+        it('should contain a objectPropComparator equality comparator builder', () => {
+            expect(DataStructures.EqualityComparators.objectPropComparator).toBeA('function');
+            expect(DataStructures.EqualityComparators.objectPropComparator()).toBeA('function');
         });
     });
 });

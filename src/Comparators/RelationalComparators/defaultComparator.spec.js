@@ -1,7 +1,7 @@
 import expect from 'expect';
 import defaultComparator from './defaultComparator';
 
-describe('src/Comparator/defaultComparator', () => {
+describe('src/Comparators/RelationComparators/defaultComparator', () => {
     describe('Given the default comparator', () => {
         let element = {id: 1};
         describe('When comparing the element to itself', () => {

@@ -1,6 +1,6 @@
 import expect from 'expect';
 import Heap from './index';
-import { objectPropComparator } from './../RelationalComparators';
+import { objectPropComparator } from './../Comparators/RelationalComparators';
 
 describe('src/BinarySearchTree', () => {
     let heap;

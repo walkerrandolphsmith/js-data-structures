@@ -1,0 +1,1 @@
+export default (prop) => (e, d) => e[prop] === d[prop];

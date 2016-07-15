@@ -1,7 +1,7 @@
 import expect from 'expect';
 import objectPropComparator from './objectPropComparator';
 
-describe('src/Comparator/objectPropComparator', () => {
+describe('src/Comparators/RelationComparators/objectPropComparator', () => {
     describe('Given the objectPropComparator comparator and object property name id', () => {
         let comparator = objectPropComparator('id');
         describe('When comparing the elements that are equal', () => {

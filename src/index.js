@@ -5,5 +5,4 @@ export { default as BinarySearchTree } from './BinarySearchTree';
 export { default as HuffmanTree } from './HuffmanTree';
 export { default as AdjacencyMatrix } from './AdjacencyMatrix';
 export { default as Graph } from './Graph';
-import * as relationalComparators from './RelationalComparators';
-export const RelationalComparators = relationalComparators;
+export * from './Comparators';
