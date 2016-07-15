@@ -1,6 +1,6 @@
 import expect from 'expect';
 import BinaryTree from './../BinaryTree';
-import { objectPropComparator } from './../Comparators';
+import { objectPropComparator } from './../RelationalComparators';
 import BinarySearchTree from './index';
 
 describe('src/BinarySearchTree', () => {

@@ -42,12 +42,12 @@ describe('src/index', () => {
         });
 
         it('should contain a default comparator', () => {
-            expect(DataStructures.defaultComparator).toBeA('function');
+            expect(DataStructures.RelationalComparators.defaultComparator).toBeA('function');
         });
 
         it('should contain a objectPropComparator comparator builder', () => {
-            expect(DataStructures.objectPropComparator).toBeA('function');
-            expect(DataStructures.objectPropComparator()).toBeA('function');
+            expect(DataStructures.RelationalComparators.objectPropComparator).toBeA('function');
+            expect(DataStructures.RelationalComparators.objectPropComparator()).toBeA('function');
         });
     });
 });
