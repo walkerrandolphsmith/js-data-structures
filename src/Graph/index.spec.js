@@ -26,7 +26,6 @@ describe('src/Graph', () => {
         });
 
         describe('When adding a vertex', () => {
-            let actual;
             beforeEach(() => {
                 actual = graph.addVertex(vertex, comparator);
             });
@@ -36,13 +35,22 @@ describe('src/Graph', () => {
         });
 
         describe('When finding a vertex not in the graph', () => {
-            let actual;
             beforeEach(() => {
                 actual = graph.findVertex(vertex);
             });
 
             it('should return the vertex', () => {
                 expect(actual).toBeFalsy();
+            });
+        });
+
+        describe('when adding an edge between one or more vertex not in the graph', () => {
+            beforeEach(() => {
+                actual = graph.addEdge(vertex, vertex);
+            });
+
+            it('it should return false indicating the edge was not created', () => {
+                expect(actual).toEqual(false);
             });
         });
     });
@@ -79,6 +87,16 @@ describe('src/Graph', () => {
 
             it('it should return the vertex', () => {
                 expect(actual).toEqual(vertex, comparator);
+            });
+        });
+
+        describe('when adding an edge between two vertices in the graph', () => {
+            beforeEach(() => {
+                actual = graph.addEdge(vertex, vertex);
+            });
+
+            it('it should return true indicating the edge was added', () => {
+                expect(actual).toEqual(true);
             });
         });
     });

@@ -28,5 +28,13 @@ export default class Graph {
             }
         }
         return v;
+    };
+
+    addEdge = (v, w, comparator = defaultComparator) => {
+        let willAdd = false;
+        if(this.findVertex(v, comparator) && this.findVertex(w, comparator)) {
+            willAdd = true;
+        }
+        return willAdd;
     }
 }
