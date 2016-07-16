@@ -34,6 +34,17 @@ describe('src/Graph', () => {
                 expect(actual).toBeTruthy();
             });
         });
+
+        describe('When finding a vertex not in the graph', () => {
+            let actual;
+            beforeEach(() => {
+                actual = graph.findVertex(vertex);
+            });
+
+            it('should return the vertex', () => {
+                expect(actual).toBeFalsy();
+            });
+        });
     });
 
     describe('Given a non empty graph', () => {
@@ -58,6 +69,16 @@ describe('src/Graph', () => {
             });
             it('should return a list of all vertices in graph', () => {
                 expect(actual).toInclude(vertex);
+            });
+        });
+
+        describe('when finding a vertex in the graph', () => {
+            beforeEach(() => {
+                actual = graph.findVertex(vertex);
+            });
+
+            it('it should return the vertex', () => {
+                expect(actual).toEqual(vertex, comparator);
             });
         });
     });

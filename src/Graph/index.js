@@ -19,4 +19,14 @@ export default class Graph {
     };
 
     getVertices = () => this.vertices;
+
+    findVertex = (vertex, comparator = defaultComparator) => {
+        let v = undefined;
+        for(let i = 0; i < this.vertices.length; i++) {
+            if(comparator(vertex, this.vertices[i])) {
+                v = this.vertices[i];
+            }
+        }
+        return v;
+    }
 }
