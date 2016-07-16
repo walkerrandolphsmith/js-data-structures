@@ -44,7 +44,6 @@ describe('src/Graph', () => {
 
         describe('When adding a vertex already in graph', () => {
             beforeEach(() => {
-                console.log(graph.vertices.findIndex(comparator))
                 actual = graph.addVertex(vertex, comparator);
             });
 
