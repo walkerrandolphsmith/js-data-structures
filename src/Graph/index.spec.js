@@ -100,4 +100,32 @@ describe('src/Graph', () => {
             });
         });
     });
+
+    describe('given a graph with edge', () => {
+        beforeEach(() => {
+            graph = new Graph();
+            graph.addVertex(vertex, comparator);
+            graph.addEdge(vertex, vertex, comparator)
+        });
+
+        describe('when getting all the edges associated with a vertex', () => {
+            beforeEach(() => {
+                actual = graph.getEdges(vertex, comparator);
+            });
+
+            it('it should return all the vertices that are incedent.', () => {
+                expect(actual).toInclude(vertex);
+            });
+        });
+
+        describe('when getting all the edges associated with a vertex not in the graph', () => {
+            beforeEach(() => {
+                actual = graph.getEdges({ id: 5 }, comparator);
+            });
+
+            it('it should return all the vertices that are incedent.', () => {
+                expect(actual).toBeFalsy();
+            });
+        });
+    });
 });
