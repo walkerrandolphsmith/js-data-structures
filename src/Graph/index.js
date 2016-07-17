@@ -20,19 +20,19 @@ export default class Graph {
 
     getVertices = () => this.vertices.map(v => v.data);
 
-    findVertex = (vertex, comparator = defaultComparator) => {
-        const v = this.findVertexInternal(vertex, comparator);
-        return v ? v.data : v;
+    findVertex = (v, comparator = defaultComparator) => {
+        const vertex = this.findVertexInternal(v, comparator);
+        return vertex ? vertex.data : vertex;
     };
 
-    findVertexInternal = (vertex, comparator = defaultComparator) => {
-        let v = undefined;
+    findVertexInternal = (v, comparator = defaultComparator) => {
+        let vertex = undefined;
         for(let i = 0; i < this.vertices.length; i++) {
-            if(comparator(vertex, this.vertices[i].data)) {
-                v = this.vertices[i];
+            if(comparator(v, this.vertices[i].data)) {
+                vertex = this.vertices[i];
             }
         }
-        return v;
+        return vertex;
     };
 
     addEdge = (v, w, comparator = defaultComparator) => {
@@ -51,14 +51,14 @@ export default class Graph {
         return willAdd;
     };
 
-    getEdges = (vertex, comparator = defaultComparator) => {
-        let v = this.findVertexInternal(vertex, comparator);
-        return v ? v.incedentVertices.map(v => v.data) : undefined;
+    getEdges = (v, comparator = defaultComparator) => {
+        const vertex = this.findVertexInternal(v, comparator);
+        return vertex ? vertex.incedentVertices.map(v => v.data) : undefined;
     };
 
-    degree = (vertex, comparator = defaultComparator) => {
-        const v = this.findVertexInternal(vertex, comparator);
-        return v ? v.incedentVertices.length : -1
+    degree = (v, comparator = defaultComparator) => {
+        const vertex = this.findVertexInternal(v, comparator);
+        return vertex ? vertex.incedentVertices.length : -1
     };
 }
 
