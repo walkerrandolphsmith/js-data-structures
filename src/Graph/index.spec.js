@@ -11,7 +11,7 @@ describe('src/Graph', () => {
     describe('Given no parameters', () => {
         describe('When creating a graph', () => {
             beforeEach(() => {
-                graph = new Graph();
+                graph = new Graph(comparator);
             });
 
             it('should create a graph', () => {
@@ -22,12 +22,12 @@ describe('src/Graph', () => {
 
     describe('Given an empty graph', () => {
         beforeEach(() => {
-            graph = new Graph();
+            graph = new Graph(comparator);
         });
 
         describe('When adding a vertex', () => {
             beforeEach(() => {
-                actual = graph.addVertex(vertex, comparator);
+                actual = graph.addVertex(vertex);
             });
             it('should return true indicating the vertex was added', () => {
                 expect(actual).toBeTruthy();
@@ -46,7 +46,7 @@ describe('src/Graph', () => {
 
         describe('when getting the degree of a vertex not in the graph', () => {
             beforeEach(() => {
-                actual = graph.degree(vertex, comparator);
+                actual = graph.degree(vertex);
             });
 
             it('it should return -1', () => {
@@ -67,13 +67,13 @@ describe('src/Graph', () => {
 
     describe('Given a non empty graph', () => {
         beforeEach(() => {
-            graph = new Graph();
-            graph.addVertex(vertex, comparator);
+            graph = new Graph(comparator);
+            graph.addVertex(vertex);
         });
 
         describe('When adding a vertex already in graph', () => {
             beforeEach(() => {
-                actual = graph.addVertex(vertex, comparator);
+                actual = graph.addVertex(vertex);
             });
 
             it('should return false indicating the vertex was not added', () => {
@@ -83,7 +83,7 @@ describe('src/Graph', () => {
 
         describe('when getting the degree of a vertex in the graph that does not make an edge', () => {
             beforeEach(() => {
-                actual = graph.degree(vertex, comparator);
+                actual = graph.degree(vertex);
             });
 
             it('it should return 0', () => {
@@ -106,7 +106,7 @@ describe('src/Graph', () => {
             });
 
             it('it should return the vertex', () => {
-                expect(actual).toEqual(vertex, comparator);
+                expect(actual).toEqual(vertex);
             });
         });
 
@@ -123,14 +123,14 @@ describe('src/Graph', () => {
 
     describe('given a graph with edge', () => {
         beforeEach(() => {
-            graph = new Graph();
-            graph.addVertex(vertex, comparator);
-            graph.addEdge(vertex, vertex, comparator)
+            graph = new Graph(comparator);
+            graph.addVertex(vertex);
+            graph.addEdge(vertex, vertex)
         });
 
         describe('when getting the degree of a vertex in the graph that makes an edge', () => {
             beforeEach(() => {
-                actual = graph.degree(vertex, comparator);
+                actual = graph.degree(vertex);
             });
 
             it('it should return -1', () => {
@@ -140,7 +140,7 @@ describe('src/Graph', () => {
 
         describe('when getting all the edges associated with a vertex', () => {
             beforeEach(() => {
-                actual = graph.getEdges(vertex, comparator);
+                actual = graph.getEdges(vertex);
             });
 
             it('it should return all the vertices that are incedent.', () => {
@@ -150,7 +150,7 @@ describe('src/Graph', () => {
 
         describe('when getting all the edges associated with a vertex not in the graph', () => {
             beforeEach(() => {
-                actual = graph.getEdges({ id: 5 }, comparator);
+                actual = graph.getEdges({ id: 5 });
             });
 
             it('it should return all the vertices that are incedent.', () => {
