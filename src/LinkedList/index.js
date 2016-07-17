@@ -1,6 +1,9 @@
+import { defaultComparator } from './../Comparators/EqualityComparators';
+
 export default class LinkedList {
-    constructor() {
+    constructor(comparator = defaultComparator) {
         this.head = undefined;
+        this.comparator = comparator
     }
 
     isEmpty = () => !this.head;
@@ -11,27 +14,28 @@ export default class LinkedList {
         if(this.head) {
             this.head.push(element);
         } else {
-            this.head = new Node(element);
+            this.head = new Node(element, this.comparator);
         }
     }
 
-    popNode(current, data_to_pop, comparator = (nd, d) => nd === d) {
-        if(current.getData() && !comparator(current.getData(), data_to_pop)){
-            current.next = this.popNode(current.next, data_to_pop, comparator);
+    popNode(current, data_to_pop) {
+        if(current.getData() && !this.comparator(current.getData(), data_to_pop)){
+            current.next = this.popNode(current.next, data_to_pop);
             return current;
         }
         return current.next;
     }
 
-    pop(data, comparator) {
-        if(this.contains(data, comparator)) {
-            this.head = this.popNode(this.head, data, comparator);
+    pop(data) {
+        if(!data) return true;
+        if(this.contains(data)) {
+            this.head = this.popNode(this.head, data);
             return true;
         }
         return false;
     }
 
-    contains = (element, comparator) => this.head ? this.head.contains(element, comparator) : false;
+    contains = (element) => this.head ? this.head.contains(element) : false;
 
     getFirst = () => this.head ? this.head.getData() : undefined;
 
@@ -39,10 +43,10 @@ export default class LinkedList {
 }
 
 class Node {
-    constructor(data) {
+    constructor(data, comparator) {
         this.data = data;
         this.next = undefined;
-        this.previous = undefined;
+        this.comparator = comparator;
     }
 
     length = () => this.next ? 1 + this.next.length() : 1;
@@ -51,12 +55,12 @@ class Node {
         if(this.next) {
             this.next.push(element);
         } else {
-            this.next = new Node(element);
+            this.next = new Node(element, this.comparator);
         }
     }
 
-    contains = (element, comparator = (e, d) => e === d) =>
-        comparator(element, this.data) ? true : this.next ? this.next.contains(element, comparator) : false;
+    contains = (element) =>
+        this.comparator(element, this.data) ? true : this.next ? this.next.contains(element) : false;
 
     getData = () => this.data;
 

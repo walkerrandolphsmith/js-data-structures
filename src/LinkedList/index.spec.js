@@ -1,12 +1,19 @@
 import expect from 'expect';
 import LinkedList from './index';
+import { objectPropComparator } from './../Comparators/EqualityComparators';
 
 describe('src/LinkedList', () => {
+    let comparator = objectPropComparator('id');
+    let actual = undefined;
+    let list = undefined;
+    let element = undefined;
+    let first = undefined;
+    let second = undefined;
+    let third = undefined;
     describe('Given no parameters', () => {
         describe('When creating a LinkedList', () => {
-            let actual;
             beforeEach(() => {
-                actual = new LinkedList();
+                actual = new LinkedList(comparator);
             });
 
             it('should have the length of zero', () => {
@@ -32,12 +39,11 @@ describe('src/LinkedList', () => {
     });
 
     describe('Given an empty LinkedList', () => {
-        let list;
         beforeEach(() => {
-            list = new LinkedList();
+            list = new LinkedList(comparator);
         });
+
         describe('When adding a new element', () => {
-            let element;
             beforeEach(() => {
                 element = { id: 1 };
                 list.push(element);
@@ -57,8 +63,6 @@ describe('src/LinkedList', () => {
         });
 
         describe('When adding a two elements', () => {
-            let first;
-            let second;
             beforeEach(() => {
                 first = { id: 1 };
                 second = { id: 2 };
@@ -84,11 +88,9 @@ describe('src/LinkedList', () => {
         });
 
         describe('Given an existing LinkedList with one element', () => {
-            let list;
-            let element;
             beforeEach(() => {
                 element = { id: 1 };
-                list = new LinkedList();
+                list = new LinkedList(comparator);
                 list.push(element)
             });
             describe('When retrieving the first element', () => {
@@ -111,13 +113,10 @@ describe('src/LinkedList', () => {
         });
 
         describe('Given an existing LinkedList with two distinct elements', () => {
-            let list;
-            let first;
-            let second;
             beforeEach(() => {
                 first = { id: 1 };
                 second = { id: 2 };
-                list = new LinkedList();
+                list = new LinkedList(comparator);
                 list.push(first);
                 list.push(second)
             });
@@ -147,25 +146,18 @@ describe('src/LinkedList', () => {
             });
 
             describe('When determining if an element that satisfies the comparator is contained in the list', () => {
-                it('should return true', () => {
-                    let actual = list.contains({ id: 1 }, (e, d) => {
-                        return e.id === d.id;
-                    });
-                    expect(actual).toBeTruthy();
+                it('should return true', () => {;
+                    expect(list.contains({ id: 1 })).toBeTruthy();
                 });
             });
 
             describe('When determining if an element that does not satisfy the comparator is contained in the list', () => {
                 it('should return false', () => {
-                    let actual = list.contains({ id: 1 }, (e, d) => {
-                        return e.id === d;
-                    });
-                    expect(actual).toBeFalsy();
+                    expect(list.contains({ id: 100 })).toBeFalsy();
                 });
             });
 
             describe('When removing an element not in the list', () => {
-                let actual;
                 beforeEach(() => {
                     actual = list.pop({ id: 3 });
                 });
@@ -181,7 +173,6 @@ describe('src/LinkedList', () => {
             });
 
             describe('When removing the first element in the list', () => {
-                let actual;
                 beforeEach(() => {
                     actual = list.pop(first);
                 });
@@ -200,7 +191,6 @@ describe('src/LinkedList', () => {
             });
 
             describe('When removing the second element in the list', () => {
-                let actual;
                 beforeEach(() => {
                     actual = list.pop(second);
                 });
@@ -220,22 +210,18 @@ describe('src/LinkedList', () => {
         });
 
         describe('Given an existing LinkedList with two distinct elements such that one has empty data', () => {
-            let list;
-            let first;
-            let third;
             let emptyNode;
             beforeEach(() => {
                 first = { id: 1 };
                 emptyNode = undefined;
                 third = { id: 3 };
-                list = new LinkedList();
+                list = new LinkedList(comparator);
                 list.push(first);
                 list.push(emptyNode);
                 list.push(third);
             });
 
             describe('When removing the element with empty data in the list', () => {
-                let actual;
                 beforeEach(() => {
                     actual = list.pop(emptyNode);
                 });
@@ -249,7 +235,7 @@ describe('src/LinkedList', () => {
                 });
 
                 it('should contain the second element', () => {
-                    expect(list.contains(emptyNode)).toBeFalsy();
+                    expect(list.contains(emptyNode)).toBeTruthy();
                 });
 
                 it('should contain the third element', () => {
