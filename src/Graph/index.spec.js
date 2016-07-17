@@ -44,6 +44,16 @@ describe('src/Graph', () => {
             });
         });
 
+        describe('when getting the degree of a vertex not in the graph', () => {
+            beforeEach(() => {
+                actual = graph.degree(vertex, comparator);
+            });
+
+            it('it should return -1', () => {
+                expect(actual).toEqual(-1);
+            });
+        });
+
         describe('when adding an edge between one or more vertex not in the graph', () => {
             beforeEach(() => {
                 actual = graph.addEdge(vertex, vertex);
@@ -68,6 +78,16 @@ describe('src/Graph', () => {
 
             it('should return false indicating the vertex was not added', () => {
                 expect(actual).toBeFalsy();
+            });
+        });
+
+        describe('when getting the degree of a vertex in the graph that does not make an edge', () => {
+            beforeEach(() => {
+                actual = graph.degree(vertex, comparator);
+            });
+
+            it('it should return 0', () => {
+                expect(actual).toEqual(0);
             });
         });
 
@@ -106,6 +126,16 @@ describe('src/Graph', () => {
             graph = new Graph();
             graph.addVertex(vertex, comparator);
             graph.addEdge(vertex, vertex, comparator)
+        });
+
+        describe('when getting the degree of a vertex in the graph that makes an edge', () => {
+            beforeEach(() => {
+                actual = graph.degree(vertex, comparator);
+            });
+
+            it('it should return -1', () => {
+                expect(actual).toEqual(1);
+            });
         });
 
         describe('when getting all the edges associated with a vertex', () => {

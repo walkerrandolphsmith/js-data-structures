@@ -44,7 +44,9 @@ export default class Graph {
         }
         if(willAdd) {
             vertexV.incedentVertices.push(vertexW);
-            vertexW.incedentVertices.push(vertexV);
+            if(!comparator(vertexV, vertexW)) {
+                vertexW.incedentVertices.push(vertexV);
+            }
         }
         return willAdd;
     };
@@ -52,7 +54,12 @@ export default class Graph {
     getEdges = (vertex, comparator = defaultComparator) => {
         let v = this.findVertexInternal(vertex, comparator);
         return v ? v.incedentVertices.map(v => v.data) : undefined;
-    }
+    };
+
+    degree = (vertex, comparator = defaultComparator) => {
+        const v = this.findVertexInternal(vertex, comparator);
+        return v ? v.incedentVertices.length : -1
+    };
 }
 
 class Vertex {
