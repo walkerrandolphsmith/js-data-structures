@@ -13,7 +13,7 @@ describe('src/BinarySearchTree', () => {
     describe('Given no parameters', () => {
         describe('When creating a Heap', () => {
             beforeEach(() => {
-                heap = new Heap();
+                heap = new Heap(null, comparator);
             });
 
             it('should be a empty', () => {
@@ -23,7 +23,7 @@ describe('src/BinarySearchTree', () => {
 
         describe('When creating a Heap with a capacity', () => {
             beforeEach(() => {
-                heap = new Heap(capacity);
+                heap = new Heap(capacity, comparator);
             });
 
             it('should be a empty', () => {
@@ -33,7 +33,7 @@ describe('src/BinarySearchTree', () => {
 
         describe('When creating a Heap with an invalid capacity', () => {
             beforeEach(() => {
-                heap = new Heap("invalid number");
+                heap = new Heap("invalid number", comparator);
             });
 
             it('should be a empty', () => {
@@ -44,7 +44,7 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given an empty Heap', () => {
         beforeEach(() => {
-            heap = new Heap(capacity);
+            heap = new Heap(capacity, comparator);
         });
 
         describe('When inserting an element', () => {
@@ -63,8 +63,8 @@ describe('src/BinarySearchTree', () => {
 
         describe('When inserting elements of strictly increasing values', () => {
             beforeEach(() => {
-                heap.insert(element, comparator);
-                actual = heap.insert(largerElement, comparator);
+                heap.insert(element);
+                actual = heap.insert(largerElement);
             });
 
             it('should not be empty', () => {
@@ -86,8 +86,8 @@ describe('src/BinarySearchTree', () => {
 
         describe('When inserting elements of strictly decreasing values', () => {
             beforeEach(() => {
-                heap.insert(largerElement, comparator);
-                actual = heap.insert(element, comparator);
+                heap.insert(largerElement);
+                actual = heap.insert(element);
             });
 
             it('should not be empty', () => {
@@ -120,9 +120,9 @@ describe('src/BinarySearchTree', () => {
         describe('When inserting one more element than the heaps capacity', () => {
             beforeEach(() => {
                 for(var i = 0; i < capacity; i++) {
-                    heap.insert({ id: i }, comparator);
+                    heap.insert({ id: i });
                 }
-                actual = heap.insert({ id: capacity + 1 }, comparator);
+                actual = heap.insert({ id: capacity + 1 });
             });
 
             it('should be undefined', () => {
@@ -133,8 +133,8 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given a Heap with one element', () => {
         beforeEach(() => {
-            heap = new Heap(capacity);
-            heap.insert(element, comparator);
+            heap = new Heap(capacity, comparator);
+            heap.insert(element);
         });
 
         describe('When removing an element', () => {
@@ -154,17 +154,17 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given a Heap with three elements in which the right child is greater than the left child', () => {
         beforeEach(() => {
-            heap = new Heap(capacity);
-            heap.insert(element, comparator);
-            heap.insert(largerElement, comparator);
-            heap.insert(largestElement, comparator);
+            heap = new Heap(capacity, comparator);
+            heap.insert(element);
+            heap.insert(largerElement);
+            heap.insert(largestElement);
         });
 
         describe('When removing all elements', () => {
             it('should remove the smallest element', () => {
-                expect(heap.remove(comparator)).toEqual(element);
-                expect(heap.remove(comparator)).toEqual(largerElement);
-                expect(heap.remove(comparator)).toEqual(largestElement);
+                expect(heap.remove()).toEqual(element);
+                expect(heap.remove()).toEqual(largerElement);
+                expect(heap.remove()).toEqual(largestElement);
                 expect(heap.isEmpty()).toBeTruthy();
             });
         });
@@ -172,17 +172,17 @@ describe('src/BinarySearchTree', () => {
 
     describe('Given a Heap with three elements in which the right child is less than the left child', () => {
         beforeEach(() => {
-            heap = new Heap(capacity);
-            heap.insert(element, comparator);
-            heap.insert(largestElement, comparator);
-            heap.insert(largerElement, comparator);
+            heap = new Heap(capacity, comparator);
+            heap.insert(element);
+            heap.insert(largestElement);
+            heap.insert(largerElement);
         });
 
         describe('When removing all elements', () => {
             it('should be the smallest element', () => {
-                expect(heap.remove(comparator)).toEqual(element);
-                expect(heap.remove(comparator)).toEqual(largerElement);
-                expect(heap.remove(comparator)).toEqual(largestElement);
+                expect(heap.remove()).toEqual(element);
+                expect(heap.remove()).toEqual(largerElement);
+                expect(heap.remove()).toEqual(largestElement);
                 expect(heap.isEmpty()).toBeTruthy();
             });
         });
@@ -198,25 +198,25 @@ describe('src/BinarySearchTree', () => {
         let rightRight = { id: 7 };
         beforeEach(() => {
             capacity = 9;
-            heap = new Heap(capacity);
-            heap.insert(root, comparator);
-            heap.insert(left, comparator);
-            heap.insert(right, comparator);
-            heap.insert(leftLeft, comparator);
-            heap.insert(leftRight, comparator);
-            heap.insert(rightLeft, comparator);
-            heap.insert(rightRight, comparator);
+            heap = new Heap(capacity, comparator);
+            heap.insert(root);
+            heap.insert(left);
+            heap.insert(right);
+            heap.insert(leftLeft);
+            heap.insert(leftRight);
+            heap.insert(rightLeft);
+            heap.insert(rightRight);
         });
 
         describe('When removing all elements', () => {
             it('should the be the smallest remaining element', () => {
-                expect(heap.remove(comparator)).toEqual(root);
-                expect(heap.remove(comparator)).toEqual(left);
-                expect(heap.remove(comparator)).toEqual(right);
-                expect(heap.remove(comparator)).toEqual(leftLeft);
-                expect(heap.remove(comparator)).toEqual(leftRight);
-                expect(heap.remove(comparator)).toEqual(rightLeft);
-                expect(heap.remove(comparator)).toEqual(rightRight);
+                expect(heap.remove()).toEqual(root);
+                expect(heap.remove()).toEqual(left);
+                expect(heap.remove()).toEqual(right);
+                expect(heap.remove()).toEqual(leftLeft);
+                expect(heap.remove()).toEqual(leftRight);
+                expect(heap.remove()).toEqual(rightLeft);
+                expect(heap.remove()).toEqual(rightRight);
                 expect(heap.isEmpty()).toBeTruthy();
             });
         });

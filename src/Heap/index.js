@@ -1,18 +1,19 @@
 import { defaultComparator } from './../Comparators/RelationalComparators';
 
 export default class Heap {
-    constructor(capacity) {
+    constructor(capacity, comparator = defaultComparator) {
         this.capacity = typeof capacity === 'number' ? capacity : 0;
         this.heap = [];
         for(var i = 0; i < this.capacity; i++) {
             this.heap[i] = undefined;
         }
         this.nextEmpty = 0;
+        this.comparator = comparator;
     }
 
     isEmpty = () => this.nextEmpty === 0;
 
-    insert = (element, comparator = defaultComparator) => {
+    insert = (element) => {
         if(this.nextEmpty >= this.capacity) {
             return false;
         } else {
@@ -20,7 +21,7 @@ export default class Heap {
             let child = this.nextEmpty++;
             if(child > 0) {
                 let parent = Math.floor((child - 1) / 2);
-                const comparison = comparator(this.heap[parent], this.heap[child]);
+                const comparison = this.comparator(this.heap[parent], this.heap[child]);
                 while(parent >= 0 && comparison === 1) {
                     this.swap(parent, child);
                     child = parent;
@@ -37,7 +38,7 @@ export default class Heap {
         this.heap[child] = temp;
     };
 
-    remove = (comparator = defaultComparator) => {
+    remove = () => {
         const root = this.heap[0];
         if(!this.isEmpty()) {
             this.heap[0] = this.heap[--this.nextEmpty];
@@ -50,7 +51,7 @@ export default class Heap {
                     break;
                 }
                 if(rightChild >= this.nextEmpty) {
-                    let isParentLessThanLeftChild = comparator(this.heap[parent], this.heap[leftChild]) === -1;
+                    let isParentLessThanLeftChild = this.comparator(this.heap[parent], this.heap[leftChild]) === -1;
                     if(isParentLessThanLeftChild) {
                         break;
                     } else  {
@@ -58,7 +59,7 @@ export default class Heap {
                         parent = leftChild;
                     }
                 } else {
-                    let isLeftGreater = comparator(this.heap[leftChild], this.heap[rightChild]) === 1;
+                    let isLeftGreater = this.comparator(this.heap[leftChild], this.heap[rightChild]) === 1;
                     let minChild = isLeftGreater ? rightChild : leftChild;
                     this.swap(parent, minChild);
                     parent = minChild;
