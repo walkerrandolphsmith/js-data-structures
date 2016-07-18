@@ -1,6 +1,6 @@
 export default class BinaryTree {
 
-    constructor(data, left, right) {
+    constructor(data, left, right, comparator) {
         this.root = data instanceof Node ? data : new Node(data);
         if(left !== null) {
             this.root.left = left instanceof BinaryTree ? left.root : undefined;
@@ -8,6 +8,7 @@ export default class BinaryTree {
         if(right !== null) {
             this.root.right = right instanceof BinaryTree ? right.root : undefined;
         }
+        this.comparator = comparator;
     }
 
     getData = () => this.root.data;

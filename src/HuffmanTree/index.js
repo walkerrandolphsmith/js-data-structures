@@ -2,7 +2,7 @@ import BinaryTree, { Node } from './../BinaryTree';
 
 export default class HuffmanTree extends BinaryTree {
     constructor(data) {
-        super(data, null, null);
+        super(data, null, null, null);
     }
 
     setLeftSubtree = (left) => {

@@ -2,22 +2,28 @@ import BinaryTree, { Node } from './../BinaryTree';
 import { defaultComparator } from './../Comparators/RelationalComparators';
 
 export default class BinarySearchTree extends BinaryTree {
-    add = (element, comparator) => {
-        const { wasAdded, root } = this.addNode(this.root, element, comparator);
+
+    constructor(data, left, right, comparator = defaultComparator) {
+        super(data, left, right, comparator)
+    }
+
+    add = (element) => {
+        const { wasAdded, root } = this.addNode(this.root, element);
         this.root = root;
         return wasAdded;
     };
 
-    addNode = (currentRoot, element, comparator = defaultComparator) => {
+    addNode = (currentRoot, element) => {
+        console.log(element, currentRoot)
         if(currentRoot && currentRoot.data) {
-            const comparison = comparator(element, currentRoot.data);
+            const comparison = this.comparator(element, currentRoot.data);
             if(comparison === 0) {
                 return { wasAdded: false, root: currentRoot };
             } else if(comparison < 0) {
-                currentRoot.left = this.addNode(currentRoot.left, element, comparator).root;
+                currentRoot.left = this.addNode(currentRoot.left, element).root;
                 return { wasAdded: true, root: currentRoot };
             } else {
-                currentRoot.right = this.addNode(currentRoot.right, element, comparator).root;
+                currentRoot.right = this.addNode(currentRoot.right, element).root;
                 return { wasAdded: true, root: currentRoot };
             }
         } else {
@@ -25,17 +31,17 @@ export default class BinarySearchTree extends BinaryTree {
         }
     };
 
-    find = (element, comparator) => this.findNode(this.root, element, comparator);
+    find = (element) => this.findNode(this.root, element);
 
-    findNode = (currentRoot, element, comparator = defaultComparator) => {
+    findNode = (currentRoot, element) => {
         if(currentRoot && currentRoot.data) {
-            const comparison = comparator(element, currentRoot.data);
+            const comparison = this.comparator(element, currentRoot.data);
             if(comparison === 0) {
                 return currentRoot.data;
             } else if(comparison < 0) {
-                return this.findNode(currentRoot.left, element, comparator);
+                return this.findNode(currentRoot.left, element);
             } else {
-                return this.findNode(currentRoot.right, element, comparator);
+                return this.findNode(currentRoot.right, element);
             }
         } else {
             return undefined;
@@ -52,23 +58,23 @@ export default class BinarySearchTree extends BinaryTree {
         }
     };
 
-    remove = (element, comparator) => {
-        const { root, isRemoved } = this.removeNode(this.root, element, comparator);
+    remove = (element) => {
+        const { root, isRemoved } = this.removeNode(this.root, element);
         this.root = root;
         return isRemoved;
     };
 
-    removeNode = (currentRoot, element, comparator) => {
+    removeNode = (currentRoot, element) => {
         let nodeToReturn = currentRoot;
         let isRemoved = false;
         if(currentRoot) {
-            const comparison = comparator(element, currentRoot.data);
+            const comparison = this.comparator(element, currentRoot.data);
             if(comparison < 0) {
-                const result = this.removeNode(currentRoot.left, element, comparator);
+                const result = this.removeNode(currentRoot.left, element);
                 currentRoot.left = result.root;
                 isRemoved = result.isRemoved;
             } else if(comparison > 0) {
-                 const result = this.removeNode(currentRoot.right, element, comparator);
+                 const result = this.removeNode(currentRoot.right, element);
                 currentRoot.right = result.root;
                 isRemoved = result.isRemoved;
             } else {
