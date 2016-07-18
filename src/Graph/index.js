@@ -37,12 +37,9 @@ export default class Graph {
     };
 
     addEdge = (v, w) => {
-        let willAdd = false;
-        let vertexV = this.findVertexInternal(v);
-        let vertexW = this.findVertexInternal(w);
-        if(vertexV && vertexW) {
-            willAdd = true;
-        }
+        const vertexV = this.findVertexInternal(v);
+        const vertexW = this.findVertexInternal(w);
+        const willAdd = !!(vertexV && vertexW);
         if(willAdd) {
             vertexV.incedentVertices.push(vertexW);
             if(!this.comparator(vertexV, vertexW)) {
