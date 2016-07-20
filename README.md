@@ -1,4 +1,4 @@
-# js-data-structures
+# js-data-structures :dancer:
 
 - [Linked List](#linked-list)
 - [Stack](#stack)
