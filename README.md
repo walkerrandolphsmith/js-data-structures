@@ -7,6 +7,7 @@
 - [Huffman Tree](#huffman-tree)
 - [Heap](#heap)
 - [Adjacency Matrix](#adjacency-matrix)
+- [Graph](#graph)
 
 ### Linked List
 ```
@@ -126,3 +127,23 @@ e       *
 `outEdges(v)` Given a vertex find all edges where the initial vertex is v.
 
 `inEdges(v)` Given a vertex find all edges where the terminal vertex is v.
+
+### Graph
+```
+A       B - F
+  \   /
+    C
+  /   \
+D       E
+```
+`getVertices()` Retrieve all verticies in the graph.
+
+`getEdges(v)` Given a vertex, retrieve all the vertices it is incedent to.
+
+`addVertex(v)` Given data, add the vertex to the graph.
+
+`findVertex(v)` Given data, retrieve the vertex in the graph.
+
+`addEdge(v, w)` Given two verticies relate them to one another to form an edge.
+
+`degree(v)` Given a vertex determine how many vertices it is incedent to.
