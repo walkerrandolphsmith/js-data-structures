@@ -14,14 +14,16 @@
 a->b->c
 ```
 
+`new LinkedList(comparator)` Create a new linked list given a comparator function
+
 `isEmpty()` 
 Determine if there is any elements in list.
 
 `length()`
 Determine the number of elements in the list.
 
-`contains(element, comparator)`
-Given an element and a comparator function, determine if the element is in the list.
+`contains(element)`
+Given an element determine if the element is in the list.
 
 `getFirst()`
 Retrieve the first element in the list.
@@ -32,8 +34,8 @@ Retrieve the last element in the list.
 `push(element)`
 Add an element to the end of the list.
 
-`pop(element, comparator)`
-Given an element and a comparator function, remove the first element that matches the comparison.
+`pop(element)`
+Given an element remove the first element that matches the comparison.
 
 
 ### Stack
@@ -78,14 +80,15 @@ Given an element and a comparator function, remove the first element that matche
   \   /   \
    4 5     6
 ```
+`new BinarySearchTree(comparator)` Create a new Binary Search Tree given a compartor function.
 
-`add(element, comparator)` Given an element and a comparator function, add an element to the tree.
+`add(element)` Given an element add an element to the tree.
 
-`find(element, comparator)` Given an element and a comparator function, retrieve the first element that matchs the comparison.
+`find(element)` Given an element retrieve the first element that matchs the comparison.
 
 `findLargestChild(parent)` Given a node in the tree, find the descendant node with greatest value.
 
-`remove(element, comparator)` Given an element and a comparator function, remove the first element that matches the comparison.
+`remove(element)` Given an element remove the first element that matches the comparison.
 
 ### Huffman Tree : Binary Tree
 ```
@@ -95,6 +98,7 @@ e       *
       /   \
      n     s
 ```
+`new HuffmanTree(comparator)` Create a new Huffman Tree given a comprator.
 
 `add(element, code)` Given an element and a bit string, add a node in the tree for the element such that the tree can be traversed using the bit string as a sequence of edges.
 
@@ -108,9 +112,11 @@ e       *
   \   /   \
    4 5     6
 ```
-`insert(element, comparator)` Given an element and a comparator function, insert the element in the heap.
+`new Heap(comparator)` Create a new Heap given a comparator function.
 
-`remove(comparator)` Given a comparator (to reshap the heap), Retrieve the root node which is the largest or smallest element in the heap.
+`insert(element)` Given an element insert the element in the heap.
+
+`remove()` Retrieve and remove the root node which is the largest or smallest element in the heap.
 
 ### Adjacency Matrix
 ```
