@@ -4,7 +4,7 @@
   "description": "Stack",
   "main": "index.js",
   "scripts": {
-
+    "build": "cd ./../../ && source build.sh && build Stack"
   },
   "repository": {
     "type": "git",

@@ -4,7 +4,7 @@
   "description": "Collection of common data structures",
   "main": "index.js",
   "scripts": {
-
+    "build": "cd ./../../ && source build.sh && build DataStructures"
   },
   "repository": {
     "type": "git",

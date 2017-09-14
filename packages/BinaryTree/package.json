@@ -4,7 +4,7 @@
   "description": "Binary Tree",
   "main": "index.js",
   "scripts": {
-
+    "build": "cd ./../../ && source build.sh && build BinaryTree"
   },
   "repository": {
     "type": "git",

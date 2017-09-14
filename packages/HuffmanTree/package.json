@@ -4,7 +4,7 @@
   "description": "Huffman Tree",
   "main": "index.js",
   "scripts": {
-
+    "build": "cd ./../../ && source build.sh && build HuffmanTree"
   },
   "repository": {
     "type": "git",

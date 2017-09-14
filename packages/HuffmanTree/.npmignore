@@ -1,0 +1,7 @@
+
+.DS_Store
+.idea
+
+index.js
+index.spec.js
+node_modules

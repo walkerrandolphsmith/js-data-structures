@@ -1,4 +1,5 @@
-# js-data-structures :dancer:
+# js-data-structures :dancer: [![Build Status](https://travis-ci.org/Quillio/js-data-structures.svg?branch=master)](https://travis-ci.org/Quillio/js-data-structures)
+
 
 - [Linked List](#linked-list)
 - [Stack](#stack)

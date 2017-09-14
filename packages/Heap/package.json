@@ -4,7 +4,7 @@
   "description": "Heap",
   "main": "index.js",
   "scripts": {
-
+    "build": "cd ./../../ && source build.sh && build Heap"
   },
   "repository": {
     "type": "git",

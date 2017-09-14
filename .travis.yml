@@ -4,5 +4,5 @@ node_js:
 install:
   - yarn install
 script:
-  - lerna boostrap
+  - lerna bootstrap
   - npm t

@@ -4,7 +4,7 @@
   "description": "Adjacency Matrix",
   "main": "index.js",
   "scripts": {
-
+    "build": "cd ./../../ && source build.sh && build AdjacencyMatrix"
   },
   "repository": {
     "type": "git",
