@@ -1,11 +1,11 @@
 {
-  "name": "@walkerrandolphsmith/js-data-structures",
+  "name": "@quillio/data-structures",
   "version": "1.1.0",
   "description": "Escape css selectors of special characters",
   "main": "index.js",
   "scripts": {
     "build": "babel ./src --ignore src/**/*.spec.js -d ./dist",
-    "test": "mocha src/**/*.spec.js --compilers js:babel-core/register --recursive"
+    "test": "mocha packages/**/*.spec.js --compilers js:babel-core/register --recursive"
   },
   "repository": {
     "type": "git",
@@ -35,14 +35,12 @@
     "babel-preset-stage-2": "^6.5.0",
     "babel-preset-stage-3": "^6.5.0",
     "expect": "^1.20.2",
-    "mocha": "^2.5.3",
-    "wallaby-webpack": "0.0.22",
-    "webpack": "^1.13.1"
+    "lerna": "^2.0.0-rc.4",
+    "mocha": "^2.5.3"
   },
   "babel": {
     "presets": [
       "es2015",
-      "react",
       "stage-3",
       "stage-2",
       "stage-1",

@@ -104,7 +104,6 @@ describe('src/BinarySearchTree', () => {
             });
 
             it('should have a left sub tree with a root node containing the element', () => {
-                console.log(tree.getLeftSubtree())
                 expect(tree.getRightSubtree().getData()).toEqual(element);
             });
         })
@@ -273,7 +272,6 @@ describe('src/BinarySearchTree', () => {
         describe('When removing the right right child', () => {
             beforeEach(() => {
                 actual = tree.remove(rightChild);
-                console.log(actual);
             });
             it('should return the element in the right subtree', () => {
                 expect(actual).toBeTruthy();

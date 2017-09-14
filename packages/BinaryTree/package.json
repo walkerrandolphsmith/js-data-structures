@@ -1,0 +1,27 @@
+{
+  "name": "@quillio/binary-tree",
+  "version": "0.0.1",
+  "description": "Binary Tree",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quillio/js-data-structures.git"
+  },
+  "keywords": [
+    "javascript",
+    "data structures",
+    "binary tree"
+  ],
+  "author": "admin@quillio.io",
+  "contributors": [
+    "walkerrandolphsmith@gmail.com"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quillio/js-data-structures/issues"
+  },
+  "homepage": "https://github.com/quillio/js-data-structures#readme"
+}

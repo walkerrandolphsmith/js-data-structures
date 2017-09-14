@@ -1,7 +1,7 @@
-import { defaultComparator } from './../Comparators/EqualityComparators';
+import { EqualityComparators } from '@quillio/comparators';
 
 export default class LinkedList {
-    constructor(comparator = defaultComparator) {
+    constructor(comparator = EqualityComparators.defaultComparator) {
         this.head = undefined;
         this.comparator = comparator
     }

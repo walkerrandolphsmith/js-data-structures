@@ -1,4 +1,4 @@
-import BinaryTree, { Node } from './../BinaryTree';
+import BinaryTree, { Node } from '@quillio/binary-tree';
 
 export default class HuffmanTree extends BinaryTree {
     constructor(data) {

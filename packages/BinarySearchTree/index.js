@@ -1,9 +1,9 @@
-import BinaryTree, { Node } from './../BinaryTree';
-import { defaultComparator } from './../Comparators/RelationalComparators';
+import BinaryTree, { Node } from '@quillio/binary-tree';
+import { RelationalComparators } from '@quillio/comparators';
 
 export default class BinarySearchTree extends BinaryTree {
 
-    constructor(data, left, right, comparator = defaultComparator) {
+    constructor(data, left, right, comparator = RelationalComparators.defaultComparator) {
         super(data, left, right, comparator)
     }
 
@@ -14,7 +14,6 @@ export default class BinarySearchTree extends BinaryTree {
     };
 
     addNode = (currentRoot, element) => {
-        console.log(element, currentRoot)
         if(currentRoot && currentRoot.data) {
             const comparison = this.comparator(element, currentRoot.data);
             if(comparison === 0) {

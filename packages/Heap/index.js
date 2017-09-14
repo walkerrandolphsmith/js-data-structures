@@ -1,7 +1,7 @@
-import { defaultComparator } from './../Comparators/RelationalComparators';
+import { RelationalComparators } from '@quillio/comparators';
 
 export default class Heap {
-    constructor(capacity, comparator = defaultComparator) {
+    constructor(capacity, comparator = RelationalComparators.defaultComparator) {
         this.capacity = typeof capacity === 'number' ? capacity : 0;
         this.heap = [];
         for(var i = 0; i < this.capacity; i++) {

@@ -1,0 +1,37 @@
+{
+  "name": "@quillio/data-strucutres",
+  "version": "0.0.1",
+  "description": "Collection of common data structures",
+  "main": "index.js",
+  "scripts": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quillio/js-data-structures.git"
+  },
+  "keywords": [
+    "javascript",
+    "data structures"
+  ],
+  "author": "admin@quillio.io",
+  "contributors": [
+    "walkerrandolphsmith@gmail.com"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quillio/js-data-structures/issues"
+  },
+  "homepage": "https://github.com/quillio/js-data-structures#readme",
+  "dependencies": {
+    "@quillio/adjacency-matrix": "0.0.1",
+    "@quillio/binary-search-tree": "0.0.1",
+    "@quillio/binary-tree": "0.0.1",
+    "@quillio/comparators": "0.0.1",
+    "@quillio/graph": "0.0.1",
+    "@quillio/heap": "0.0.1",
+    "@quillio/huffman-tree": "0.0.1",
+    "@quillio/linked-list": "0.0.1",
+    "@quillio/stack": "0.0.1"
+  }
+}
