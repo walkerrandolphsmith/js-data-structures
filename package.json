@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@walkerrandolphsmith/data-structures",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Escape css selectors of special characters",
   "main": "index.js",
   "scripts": {
