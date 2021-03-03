@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/graph",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Graph",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,6 @@
   },
   "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@walkerrandolphsmith/comparators": "1.0.5"
+    "@walkerrandolphsmith/comparators": "1.0.6"
   }
 }
