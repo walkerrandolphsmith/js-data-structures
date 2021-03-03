@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@walkerrandolphsmith/data-structures",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Common data structures implemented in JavaScript",
   "main": "index.js",
   "scripts": {
