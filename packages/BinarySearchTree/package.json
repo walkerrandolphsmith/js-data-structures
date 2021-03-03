@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/binary-search-tree",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "binary search tree",
   "main": "index.js",
   "scripts": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@walkerrandolphsmith/binary-tree": "1.0.2",
-    "@walkerrandolphsmith/comparators": "1.0.2"
+    "@walkerrandolphsmith/binary-tree": "1.0.3",
+    "@walkerrandolphsmith/comparators": "1.0.3"
   }
 }
