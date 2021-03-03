@@ -2,15 +2,11 @@
   "private": true,
   "name": "@walkerrandolphsmith/data-structures",
   "version": "1.0.8",
-  "description": "Escape css selectors of special characters",
+  "description": "Common data structures implemented in JavaScript",
   "main": "index.js",
   "scripts": {
     "build": "yarn workspaces run build",
     "test": "mocha packages/**/*.spec.js --compilers js:babel-core/register --recursive"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/walkerrandolphsmith/js-data-structures.git"
   },
   "workspaces": [
     "packages/*"
