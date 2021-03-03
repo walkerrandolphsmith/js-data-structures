@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/linked-list",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Linked List",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,6 @@
   },
   "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@walkerrandolphsmith/comparators": "1.0.3"
+    "@walkerrandolphsmith/comparators": "1.0.4"
   }
 }
