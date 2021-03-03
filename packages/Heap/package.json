@@ -7,7 +7,8 @@
     "clean": "rm -rf dist",
     "compile": "babel index.js -o ./dist/index.js",
     "compress": "uglifyjs ./dist/index.js -o ./dist/index.js",
-    "build": "yarn run clean && mkdir dist && yarn run compile && yarn run compress"
+    "build": "yarn run clean && mkdir dist && yarn run compile && yarn run compress",
+    "publish": "yarn publish"
   },
   "repository": {
     "type": "git",
