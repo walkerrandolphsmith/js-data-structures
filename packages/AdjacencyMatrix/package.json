@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/adjacency-matrix",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Adjacency Matrix",
   "main": "index.js",
   "scripts": {

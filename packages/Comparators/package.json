@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/comparators",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Comparators",
   "main": "index.js",
   "scripts": {
