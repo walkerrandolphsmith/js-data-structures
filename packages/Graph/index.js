@@ -1,4 +1,4 @@
-import { EqualityComparators } from '@quillio/comparators';
+import { EqualityComparators } from '@walkerrandolphsmith/comparators';
 
 export default class Graph {
     constructor(comparator = EqualityComparators.defaultComparator) {

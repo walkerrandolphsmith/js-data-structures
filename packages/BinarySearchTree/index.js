@@ -1,5 +1,5 @@
-import BinaryTree, { Node } from '@quillio/binary-tree';
-import { RelationalComparators } from '@quillio/comparators';
+import BinaryTree, { Node } from '@walkerrandolphsmith/binary-tree';
+import { RelationalComparators } from '@walkerrandolphsmith/comparators';
 
 export default class BinarySearchTree extends BinaryTree {
 

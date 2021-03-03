@@ -1,37 +1,37 @@
 {
-  "name": "@quillio/data-strucutres",
+  "name": "@walkerrandolphsmith/data-strucutres",
   "version": "0.0.1",
   "description": "Collection of common data structures",
   "main": "index.js",
   "scripts": {
-    "build": "cd ./../../ && source build.sh && build DataStructures"
+    "build": "echo DataStructures"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quillio/js-data-structures.git"
+    "url": "git+https://github.com/walkerrandolphsmith/js-data-structures.git"
   },
   "keywords": [
     "javascript",
     "data structures"
   ],
-  "author": "admin@quillio.io",
+  "author": "walkerrandolphsmith@gmail.com",
   "contributors": [
     "walkerrandolphsmith@gmail.com"
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/quillio/js-data-structures/issues"
+    "url": "https://github.com/walkerrandolphsmith/js-data-structures/issues"
   },
-  "homepage": "https://github.com/quillio/js-data-structures#readme",
+  "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@quillio/adjacency-matrix": "0.0.1",
-    "@quillio/binary-search-tree": "0.0.1",
-    "@quillio/binary-tree": "0.0.1",
-    "@quillio/comparators": "0.0.1",
-    "@quillio/graph": "0.0.1",
-    "@quillio/heap": "0.0.1",
-    "@quillio/huffman-tree": "0.0.1",
-    "@quillio/linked-list": "0.0.1",
-    "@quillio/stack": "0.0.1"
+    "@walkerrandolphsmith/adjacency-matrix": "0.0.1",
+    "@walkerrandolphsmith/binary-search-tree": "0.0.1",
+    "@walkerrandolphsmith/binary-tree": "0.0.1",
+    "@walkerrandolphsmith/comparators": "0.0.1",
+    "@walkerrandolphsmith/graph": "0.0.1",
+    "@walkerrandolphsmith/heap": "0.0.1",
+    "@walkerrandolphsmith/huffman-tree": "0.0.1",
+    "@walkerrandolphsmith/linked-list": "0.0.1",
+    "@walkerrandolphsmith/stack": "0.0.1"
   }
 }

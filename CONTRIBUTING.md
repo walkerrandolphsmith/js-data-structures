@@ -2,10 +2,9 @@
 
 First Time? Get up a running:
 ```
-git clone git@bitbucket.org:quillio/js-data-strucutres.git
-cd ./js-data-strucutres
-npm i -g lerna
-lerna boostrap
+git clone git@github.com:walkerrandolphsmith/js-data-structures.git
+yarn install
+yarn test
 ```
 
 ## Working on a module

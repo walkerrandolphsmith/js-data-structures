@@ -1,4 +1,4 @@
-import { RelationalComparators } from '@quillio/comparators';
+import { RelationalComparators } from '@walkerrandolphsmith/comparators';
 
 export default class Heap {
     constructor(capacity, comparator = RelationalComparators.defaultComparator) {

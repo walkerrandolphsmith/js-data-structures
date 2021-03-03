@@ -1,30 +1,33 @@
 {
-  "name": "@quillio/linked-list",
+  "name": "@walkerrandolphsmith/linked-list",
   "version": "0.0.1",
   "description": "Linked List",
   "main": "index.js",
   "scripts": {
-    "build": "cd ./../../ && source build.sh && build LinkedList"
+    "clean": "rm -rf dist",
+    "compile": "babel index.js -o ./dist/index.js",
+    "compress": "uglifyjs ./dist/index.js -o ./dist/index.js",
+    "build": "yarn run clean && mkdir dist && yarn run compile && yarn run compress"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quillio/js-data-structures.git"
+    "url": "git+https://github.com/walkerrandolphsmith/js-data-structures.git"
   },
   "keywords": [
     "javascript",
     "data structures",
     "linked list"
   ],
-  "author": "admin@quillio.io",
+  "author": "walkerrandolphsmith@gmail.com",
   "contributors": [
     "walkerrandolphsmith@gmail.com"
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/quillio/js-data-structures/issues"
+    "url": "https://github.com/walkerrandolphsmith/js-data-structures/issues"
   },
-  "homepage": "https://github.com/quillio/js-data-structures#readme",
+  "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@quillio/comparators": "0.0.1"
+    "@walkerrandolphsmith/comparators": "0.0.1"
   }
 }
