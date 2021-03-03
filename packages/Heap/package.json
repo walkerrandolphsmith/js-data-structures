@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/heap",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Heap",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,6 @@
   },
   "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@walkerrandolphsmith/comparators": "1.0.4"
+    "@walkerrandolphsmith/comparators": "1.0.5"
   }
 }
