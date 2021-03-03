@@ -15,7 +15,10 @@
     "plugins": {
       "release-it-yarn-workspaces": true
     },
-    "npm": false
+    "npm": false,
+    "git": {
+      "pushRepo": "git@github.com:walkerrandolphsmith/js-data-structures.git"
+    }
   },
   "keywords": [
     "javascript",
