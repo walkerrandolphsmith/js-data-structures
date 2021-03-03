@@ -15,6 +15,12 @@
   "workspaces": [
     "packages/*"
   ],
+  "release-it": {
+    "plugins": {
+      "release-it-yarn-workspaces": true
+    },
+    "npm": false
+  },
   "keywords": [
     "javascript",
     "data structures",
@@ -40,6 +46,8 @@
     "babel-preset-stage-3": "^6.5.0",
     "expect": "^1.20.2",
     "mocha": "^2.5.3",
+    "release-it": "^14.4.1",
+    "release-it-yarn-workspaces": "^2.0.0",
     "uglify-js": "^3.1.0"
   },
   "babel": {
