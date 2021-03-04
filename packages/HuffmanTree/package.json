@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/huffman-tree",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "Huffman Tree",
   "main": "index.js",
   "scripts": {

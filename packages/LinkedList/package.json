@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/linked-list",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "Linked List",
   "main": "index.js",
   "scripts": {
