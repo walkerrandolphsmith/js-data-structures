@@ -23,5 +23,6 @@
   "bugs": {
     "url": "https://github.com/walkerrandolphsmith/js-data-structures/issues"
   },
-  "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme"
+  "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
+  "gitHead": "51fdd8772b548c221593a9daaad4df6cf445c53e"
 }

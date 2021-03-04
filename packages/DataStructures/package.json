@@ -36,5 +36,6 @@
     "@walkerrandolphsmith/huffman-tree": "^6.1.0",
     "@walkerrandolphsmith/linked-list": "^6.1.0",
     "@walkerrandolphsmith/stack": "6.0.0"
-  }
+  },
+  "gitHead": "51fdd8772b548c221593a9daaad4df6cf445c53e"
 }
