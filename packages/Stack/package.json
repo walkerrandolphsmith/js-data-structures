@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/stack",
-  "version": "1.0.0-beta",
+  "version": "6.0.0",
   "description": "Stack",
   "main": "index.js",
   "scripts": {
