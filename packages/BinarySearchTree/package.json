@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/binary-search-tree",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "description": "binary search tree",
   "main": "index.js",
   "scripts": {
