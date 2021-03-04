@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/huffman-tree",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "Huffman Tree",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@walkerrandolphsmith/binary-tree": "7.0.1"
+    "@walkerrandolphsmith/binary-tree": "^7.0.2"
   },
   "gitHead": "dba228c79fb2d909f7ce712511e7dd65bc2cf1ef"
 }

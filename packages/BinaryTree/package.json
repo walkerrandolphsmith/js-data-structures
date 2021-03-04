@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/binary-tree",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "Binary Tree",
   "main": "index.js",
   "scripts": {
