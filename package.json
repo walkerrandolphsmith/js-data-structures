@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "@walkerrandolphsmith/data-structures",
-  "version": "3.0.0",
+  "version": "1.0.0-beta",
   "description": "Common data structures implemented in JavaScript",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,9 @@
     "git": {
       "pushRepo": "git@github.com:walkerrandolphsmith/js-data-structures.git"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "javascript",
@@ -47,7 +50,7 @@
     "lerna": "^4.0.0",
     "mocha": "^2.5.3",
     "release-it": "^14.4.1",
-    "release-it-yarn-workspaces": "^2.0.0",
+    "release-it-yarn-workspaces": "^1.0.0-beta",
     "uglify-js": "^3.1.0"
   },
   "babel": {

@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/binary-search-tree",
-  "version": "4.0.1",
+  "version": "1.0.0-beta",
   "description": "binary search tree",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,9 @@
     "build": "yarn run clean && mkdir dist && yarn run compile && yarn run compress",
     "publish": "npm publish --access public",
     "version": "yarn version --new-version %VERSION%"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "javascript",
@@ -26,7 +29,7 @@
   },
   "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@walkerrandolphsmith/binary-tree": "2.0.0",
-    "@walkerrandolphsmith/comparators": "2.0.0"
+    "@walkerrandolphsmith/binary-tree": "1.0.0-beta",
+    "@walkerrandolphsmith/comparators": "1.0.0-beta"
   }
 }

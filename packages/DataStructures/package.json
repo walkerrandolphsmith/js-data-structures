@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/data-strucutres",
-  "version": "2.0.0",
+  "version": "1.0.0-beta",
   "description": "Collection of common data structures",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,11 @@
     "compile": "babel index.js -o ./dist/index.js",
     "compress": "uglifyjs ./dist/index.js -o ./dist/index.js",
     "build": "yarn run clean && mkdir dist && yarn run compile && yarn run compress",
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "version": "yarn version --new-version %VERSION%"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "javascript",
@@ -24,14 +28,14 @@
   },
   "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@walkerrandolphsmith/adjacency-matrix": "2.0.0",
-    "@walkerrandolphsmith/binary-search-tree": "2.0.0",
-    "@walkerrandolphsmith/binary-tree": "2.0.0",
-    "@walkerrandolphsmith/comparators": "2.0.0",
-    "@walkerrandolphsmith/graph": "2.0.0",
-    "@walkerrandolphsmith/heap": "2.0.0",
-    "@walkerrandolphsmith/huffman-tree": "2.0.0",
-    "@walkerrandolphsmith/linked-list": "2.0.0",
-    "@walkerrandolphsmith/stack": "2.0.0"
+    "@walkerrandolphsmith/adjacency-matrix": "1.0.0-beta",
+    "@walkerrandolphsmith/binary-search-tree": "1.0.0-beta",
+    "@walkerrandolphsmith/binary-tree": "1.0.0-beta",
+    "@walkerrandolphsmith/comparators": "1.0.0-beta",
+    "@walkerrandolphsmith/graph": "1.0.0-beta",
+    "@walkerrandolphsmith/heap": "1.0.0-beta",
+    "@walkerrandolphsmith/huffman-tree": "1.0.0-beta",
+    "@walkerrandolphsmith/linked-list": "1.0.0-beta",
+    "@walkerrandolphsmith/stack": "1.0.0-beta"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/huffman-tree",
-  "version": "2.0.0",
+  "version": "1.0.0-beta",
   "description": "Huffman Tree",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,11 @@
     "compile": "babel index.js -o ./dist/index.js",
     "compress": "uglifyjs ./dist/index.js -o ./dist/index.js",
     "build": "yarn run clean && mkdir dist && yarn run compile && yarn run compress",
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "version": "yarn version --new-version %VERSION%"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "javascript",
@@ -25,6 +29,6 @@
   },
   "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
-    "@walkerrandolphsmith/binary-tree": "2.0.0"
+    "@walkerrandolphsmith/binary-tree": "1.0.0-beta"
   }
 }
