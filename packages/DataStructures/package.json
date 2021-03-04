@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/data-strucutres",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "Collection of common data structures",
   "main": "index.js",
   "scripts": {
@@ -28,13 +28,13 @@
   "homepage": "https://github.com/walkerrandolphsmith/js-data-structures#readme",
   "dependencies": {
     "@walkerrandolphsmith/adjacency-matrix": "6.0.0",
-    "@walkerrandolphsmith/binary-search-tree": "6.0.0",
+    "@walkerrandolphsmith/binary-search-tree": "^6.1.0",
     "@walkerrandolphsmith/binary-tree": "6.0.0",
     "@walkerrandolphsmith/comparators": "6.0.0",
-    "@walkerrandolphsmith/graph": "6.0.0",
-    "@walkerrandolphsmith/heap": "6.0.0",
-    "@walkerrandolphsmith/huffman-tree": "6.0.0",
-    "@walkerrandolphsmith/linked-list": "6.0.0",
+    "@walkerrandolphsmith/graph": "^6.1.0",
+    "@walkerrandolphsmith/heap": "^6.1.0",
+    "@walkerrandolphsmith/huffman-tree": "^6.1.0",
+    "@walkerrandolphsmith/linked-list": "^6.1.0",
     "@walkerrandolphsmith/stack": "6.0.0"
   }
 }
