@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/adjacency-matrix",
-  "version": "6.0.0",
+  "version": "6.0.1",
   "description": "Adjacency Matrix",
   "main": "index.js",
   "scripts": {
@@ -8,8 +8,7 @@
     "compile": "babel index.js -o ./dist/index.js",
     "compress": "uglifyjs ./dist/index.js -o ./dist/index.js",
     "build": "yarn run clean && mkdir dist && yarn run compile && yarn run compress",
-    "publish": "npm publish --access public",
-    "version": "yarn version --new-version %VERSION%"
+    "publish": "npm publish --access public"
   },
   "keywords": [
     "javascript",

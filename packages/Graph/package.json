@@ -8,8 +8,7 @@
     "compile": "babel index.js -o ./dist/index.js",
     "compress": "uglifyjs ./dist/index.js -o ./dist/index.js",
     "build": "yarn run clean && mkdir dist && yarn run compile && yarn run compress",
-    "publish": "npm publish --access public",
-    "version": "yarn version --new-version %VERSION%"
+    "publish": "npm publish --access public"
 
   },
   "publishConfig": {
