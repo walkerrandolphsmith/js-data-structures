@@ -5,6 +5,10 @@
   "command": {
     "version": {
       "allowBranch": "master"
+    },
+    "publish": {
+      "conventionalCommits": true,
+      "yes": true
     }
   }
 }
