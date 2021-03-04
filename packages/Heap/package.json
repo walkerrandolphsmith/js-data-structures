@@ -1,6 +1,6 @@
 {
   "name": "@walkerrandolphsmith/heap",
-  "version": "6.1.2",
+  "version": "7.0.0",
   "description": "Heap",
   "main": "index.js",
   "scripts": {
